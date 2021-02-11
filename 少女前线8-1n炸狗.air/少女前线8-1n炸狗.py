@@ -34,10 +34,17 @@ def neihe():
     # 向内捏合
     for i in range(2):
         dev.pinch(in_or_out='in', center=None, percent=0.5)
-        sleep(2.5)
+        sleep(1.5)
     # 向外捏合
     dev.pinch(in_or_out='out', center=None, percent=0.1)
     sleep(2.5)
+    # 如果点到了重装，那么关闭并重新缩放
+    is_zz = exists(Template(r"tpl1613063270994.png", record_pos=(-0.297, -0.212), resolution=(1440, 810)))
+    if is_zz:
+        wait(Template(r"tpl1613063307567.png", record_pos=(0.246, 0.224), resolution=(1440, 810)))
+        touch(Template(r"tpl1613063307567.png", record_pos=(0.246, 0.224), resolution=(1440, 810)))
+        sleep(2)
+        neihe()
 
 
 # 是否确定开始
@@ -147,9 +154,9 @@ def plan_route():
     wait(Template(r"tpl1612984857140.png", target_pos=3, record_pos=(-0.288, 0.033), resolution=(1440, 810)))
     touch(Template(r"tpl1612984857140.png", target_pos=3, record_pos=(-0.288, 0.033), resolution=(1440, 810)))
 
-    sleep(2)
+    sleep(3)
     touch(Template(r"tpl1612981707528.png", record_pos=(0.426, 0.231), resolution=(1440, 810)))
-    # 如果遇到没有弹药和口粮遇敌必败则重开
+    # 如果遇到没有弹药和口粮遇敌必败弹窗则重开
     no_food_restart()
     
 
@@ -234,9 +241,9 @@ def houqin():
 # 在游戏主界面进入8-1n
 def main_in_81n():
 	# 先判断有没有后勤归来的队伍
-	for i in range(4):
-		houqin()
-		sleep(5)
+    for i in range(4):
+        houqin()
+        sleep(5)
     is_main = exists(Template(r"tpl1613054174818.png", record_pos=(0.245, 0.051), resolution=(1440, 810)))
     # 如果在游戏主界面
     if is_main:
@@ -255,9 +262,12 @@ def main_in_81n():
         if is_81n:
             wait(Template(r"tpl1613056227863.png", record_pos=(0.449, -0.131), resolution=(1440, 810)))
             touch(Template(r"tpl1613056227863.png", record_pos=(0.449, -0.131), resolution=(1440, 810)))
-            wait(Template(r"tpl1613056269892.png", record_pos=(0.072, -0.051), resolution=(1440, 810)))
-            touch(Template(r"tpl1613056269892.png", record_pos=(0.072, -0.051), resolution=(1440, 810)))
+
+            wait(Template(r"tpl1613061952109.png", record_pos=(0.0, -0.067), resolution=(1440, 810)))
+            sleep(2)
+            touch(Template(r"tpl1613061952109.png", record_pos=(0.0, -0.067), resolution=(1440, 810)))
             wait(Template(r"tpl1613056446830.png", record_pos=(0.278, 0.181), resolution=(1440, 810)))
+            sleep(2)
             touch(Template(r"tpl1613056446830.png", record_pos=(0.278, 0.181), resolution=(1440, 810)))
             sleep(8)
 
@@ -280,6 +290,8 @@ def start_zhagou(num):
     neihe()
     # 更换打手
     change_renxing()
+    # 缩放地图复位
+    neihe()
     # 部署两个梯队
     select_two_team()
     # 确认开始
@@ -315,7 +327,8 @@ def start_zhagou(num):
 def again_zhagou(num):
     for i in range(num):
         print("当前执行次数 >> " + str(i+1))
-        start_zhagou(num+1)
+        # 把循环的次数传进去方便判断
+        start_zhagou(i)
 
         
 # 开始炸狗，输入要打多少把
