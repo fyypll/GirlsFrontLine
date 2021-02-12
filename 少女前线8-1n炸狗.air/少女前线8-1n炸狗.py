@@ -72,8 +72,9 @@ def airport_top_left():
 
 # 确定部署梯队
 def confirm_team():
+    sleep(1)
     wait(Template(r"tpl1612973050340.png",
-                  record_pos=(-0.276, -0.206), resolution=(1440, 810)))
+                  record_pos=(-0.276, -0.206), resolution=(1440, 810)),intervalfunc=close_and_start)
     touch(Template(r"tpl1612973088470.png", record_pos=(
         0.408, 0.216), resolution=(1440, 810)))
 
@@ -81,10 +82,12 @@ def confirm_team():
 # 更换打手，默认为二号位
 def change_renxing():
     airport_bottom_left()
+    sleep(1)
     wait(Template(r"tpl1612973222920.png",
                    record_pos=(-0.301, 0.21), resolution=(1440, 810)),intervalfunc=close_and_start)
     touch(Template(r"tpl1612973222920.png",
                    record_pos=(-0.301, 0.21), resolution=(1440, 810)))
+    sleep(1)
     wait(Template(r"tpl1612973262610.png",
                   record_pos=(-0.188, -0.237), resolution=(1440, 810)))
     wait(Template(r"tpl1612973337422.png",
@@ -118,6 +121,7 @@ def buji_chetui():
     touch(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
     sleep(2)
     touch(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
+    sleep(1)
     wait(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810)))
     touch(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810)))
     sleep(2)
@@ -284,9 +288,11 @@ def houqin():
 # 在游戏主界面进入8-1n
 def main_in_81n():
 	# 先判断有没有后勤归来的队伍
-    for i in range(4):
-        houqin()
-        sleep(5)
+    isexists1 = exists(Template(r"tpl1612894421046.png",record_pos=(-0.339, -0.077), resolution=(1440, 810)))
+    if isexists1:
+        for i in range(4):
+            houqin()
+            sleep(5)
     is_main = exists(Template(r"tpl1613054174818.png", record_pos=(0.245, 0.051), resolution=(1440, 810)))
     # 如果在游戏主界面
     if is_main:
@@ -348,7 +354,7 @@ def close_and_start():
     sleep(6)
     wait(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
     touch(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
-    sleep(5)
+    sleep(10)
 
 
 # 炸狗流程
@@ -374,8 +380,8 @@ def start_zhagou(num):
     # wait(Template(r"tpl1612983018269.png", record_pos=(0.049, 0.004), resolution=(1440, 810)),timeout=40)
     is_exist = exists(Template(r"tpl1612983018269.png", record_pos=(0.049, 0.004), resolution=(1440, 810)))
     if is_exist:
-        # 如果已经作战10次啦
-        if num % 10 == 0:
+        # 如果已经作战15次啦
+        if num % 15 == 0:
             # 回主界面
             # back_home()
             # 终止战斗并返回主界面
