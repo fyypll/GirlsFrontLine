@@ -369,7 +369,7 @@ def map_plan():
 
 # 从主界面到炸狗一条龙
 def start_bomb_dog(num):
-    # 从主界面进入地图
+    # 从主界面进入地图，如果在主界面就进8_1n地图，否则啥也不干
     main_in_81n()
     # 缩放地图，换zas，布局下梯队，开始回合并将左上角梯队补给撤退
     map_plan()
@@ -400,7 +400,7 @@ def start_bomb_dog(num):
             chai_zhuang_bei()
         else:
             # 如不是15的倍数，该干嘛干嘛
-            # 重启地图、换位补给撤退、计划
+            # 重启地图
             restart()
             # 如果重启地图了弹窗提示装备爆仓了
             if storehouse_full():
