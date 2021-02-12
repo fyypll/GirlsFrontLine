@@ -402,6 +402,7 @@ def start_zhagou(num):
         else:
             # 重启地图
             restart()
+            sleep(5)
             # 装备仓库满了就拆装备
             storehouse_full()
 
