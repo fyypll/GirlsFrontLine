@@ -380,7 +380,7 @@ def start_zhagou(num):
     # 确认开始
     start()
     sleep(2)
-    wait(Template(r"tpl1612980410750.png", record_pos=(-0.153, -0.235), resolution=(1440, 810)))
+    # wait(Template(r"tpl1612980410750.png", record_pos=(-0.153, -0.235), resolution=(1440, 810)))
     # 给二队补给并撤退
     buji_chetui()
     # 给一队规划炸狗路线并执行
