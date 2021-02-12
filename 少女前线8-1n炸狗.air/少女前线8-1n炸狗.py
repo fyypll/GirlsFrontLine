@@ -338,7 +338,7 @@ def start_zhagou(num):
     # 给一队规划炸狗路线并执行
     plan_route()
     sleep(150)
-#     wait(Template(r"tpl1612983018269.png", record_pos=(0.049, 0.004), resolution=(1440, 810)),timeout=40)
+    # wait(Template(r"tpl1612983018269.png", record_pos=(0.049, 0.004), resolution=(1440, 810)),timeout=40)
     is_exist = exists(Template(r"tpl1612983018269.png", record_pos=(0.049, 0.004), resolution=(1440, 810)))
     if is_exist:
         # 如果已经作战10次啦
@@ -352,15 +352,11 @@ def start_zhagou(num):
                 sleep(5)
             # 开拆装备
             chaizhuangbei()
-            # 重新开始炸狗
-            start_zhagou()
         else:
             # 重启地图
             restart()
             # 装备仓库满了就拆装备
             storehouse_full()
-            # 重新开始炸狗
-            start_zhagou()
 
     
 # 打算运行多少次
@@ -368,7 +364,7 @@ def again_zhagou(num):
     for i in range(num):
         print("当前执行次数 >> " + str(i+1))
         # 把循环的次数传进去方便判断
-        start_zhagou(i)
+        start_zhagou(i+1)
 
         
 # 开始炸狗，输入要打多少把
