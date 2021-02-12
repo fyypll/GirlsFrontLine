@@ -82,26 +82,29 @@ def confirm_team():
 # 更换打手，默认为二号位
 def change_renxing():
     airport_bottom_left()
-    sleep(1)
+    sleep(2)
     wait(Template(r"tpl1612973222920.png",
                    record_pos=(-0.301, 0.21), resolution=(1440, 810)),intervalfunc=close_and_start)
     touch(Template(r"tpl1612973222920.png",
                    record_pos=(-0.301, 0.21), resolution=(1440, 810)))
-    sleep(1)
+    sleep(2)
     wait(Template(r"tpl1612973262610.png",
                   record_pos=(-0.188, -0.237), resolution=(1440, 810)))
     wait(Template(r"tpl1612973337422.png",
                    record_pos=(-0.158, -0.097), resolution=(1440, 810)))
     touch(Template(r"tpl1612973337422.png",
                    record_pos=(-0.158, -0.097), resolution=(1440, 810)))
+    sleep(2)
     wait(Template(r"tpl1612973383265.png", record_pos=(
         0.423, -0.147), resolution=(1440, 810)))
     touch(Template(r"tpl1612973383265.png", record_pos=(
         0.423, -0.147), resolution=(1440, 810)))
+    sleep(2)
     wait(Template(r"tpl1612973435192.png", record_pos=(
         0.253, 0.174), resolution=(1440, 810)))
     touch(Template(r"tpl1612973435192.png", record_pos=(
         0.253, 0.174), resolution=(1440, 810)))
+    sleep(2)
     wait(Template(r"tpl1612974573045.png", threshold=0.7, rgb=True,
                   target_pos=8, record_pos=(-0.265, -0.176), resolution=(1440, 810)))
     touch(Template(r"tpl1612974573045.png", threshold=0.7, rgb=True,
@@ -127,6 +130,7 @@ def buji_chetui():
     sleep(2)
     wait(Template(r"tpl1612985718458.png", target_pos=4, record_pos=(-0.234, -0.155), resolution=(1440, 810)))
     touch(Template(r"tpl1612985718458.png", target_pos=4, record_pos=(-0.234, -0.155), resolution=(1440, 810)))
+    sleep(2)
     wait(Template(r"tpl1612980931491.png", record_pos=(0.263, 0.214), resolution=(1440, 810)))
     touch(Template(r"tpl1612980931491.png", record_pos=(0.263, 0.214), resolution=(1440, 810)))
     sleep(2)
@@ -171,6 +175,7 @@ def storehouse_full():
     if is_full:
         wait(Template(r"tpl1613035033982.png", record_pos=(0.128, 0.106), resolution=(1440, 810)))
         touch(Template(r"tpl1613035033982.png", record_pos=(0.128, 0.106), resolution=(1440, 810)))
+        sleep(2)
         wait(Template(r"tpl1612973584765.png", target_pos=4,
                        record_pos=(-0.369, -0.24), resolution=(1440, 810)))
         touch(Template(r"tpl1612973584765.png", target_pos=4,
@@ -298,6 +303,7 @@ def main_in_81n():
     if is_main:
         wait(Template(r"tpl1613054174818.png", record_pos=(0.245, 0.051), resolution=(1440, 810)))
         touch(Template(r"tpl1613054174818.png", record_pos=(0.245, 0.051), resolution=(1440, 810)))
+        sleep(1)
         wait(Template(r"tpl1613054490281.png", record_pos=(-0.294, 0.024), resolution=(1440, 810)))
         # 获取当前手机设备
         dev = device()
