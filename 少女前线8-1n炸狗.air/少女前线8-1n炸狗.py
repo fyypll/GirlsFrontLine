@@ -169,7 +169,7 @@ def plan_route():
     no_food_restart()
     
 
-# 如果装备仓库满了
+# 如果装备仓库满了，就拆装备
 def storehouse_full():
     is_full = exists(Template(r"tpl1613035020293.png", record_pos=(0.0, -0.057), resolution=(1440, 810)))
     if is_full:
@@ -250,6 +250,8 @@ def no_food_restart():
     if is_exists:
         touch(Template(r"tpl1613045874272.png", record_pos=(-0.09, 0.106), resolution=(1440, 810)))
         restart()
+        # 重启若遇到装备爆仓
+        storehouse_full()
         close_and_start()
     
 
