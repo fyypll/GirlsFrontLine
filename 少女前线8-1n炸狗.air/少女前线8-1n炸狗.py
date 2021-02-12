@@ -20,6 +20,7 @@ __author__ = "maple"
 
 from airtest.core.api import *
 from airtest.core.android.rotation import XYTransformer
+from airtest.core.android.android import Android
 import logging
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
@@ -81,7 +82,7 @@ def confirm_team():
 def change_renxing():
     airport_bottom_left()
     wait(Template(r"tpl1612973222920.png",
-                   record_pos=(-0.301, 0.21), resolution=(1440, 810)))
+                   record_pos=(-0.301, 0.21), resolution=(1440, 810)),intervalfunc=close_and_start)
     touch(Template(r"tpl1612973222920.png",
                    record_pos=(-0.301, 0.21), resolution=(1440, 810)))
     wait(Template(r"tpl1612973262610.png",
@@ -112,7 +113,7 @@ def change_renxing():
 # 给二队补给并撤退
 def buji_chetui():
     sleep(12)
-    wait(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)),timeout=40)
+    wait(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)),timeout=40,intervalfunc=close_and_start)
 
     touch(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
     sleep(2)
@@ -235,10 +236,12 @@ def chaizhuangbei():
         
 # 遇到更换失败，显示弹药口粮耗尽遇敌必败则重开
 def no_food_restart():
+    sleep(2)
     is_exists = exists(Template(r"tpl1613045862916.png", record_pos=(-0.046, -0.057), resolution=(1440, 810)))
     if is_exists:
         touch(Template(r"tpl1613045874272.png", record_pos=(-0.09, 0.106), resolution=(1440, 810)))
         restart()
+        close_and_start()
     
 
 # 重新战斗
@@ -250,13 +253,18 @@ def restart():
 	sleep(6)
 
 
-# 终止战斗
+# 终止战斗并返回主界面
 def end_fight():
     wait(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810)))
     touch(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810)))
     sleep(2)
     wait(Template(r"tpl1613057829277.png", record_pos=(0.12, 0.104), resolution=(1440, 810)))
     touch(Template(r"tpl1613057829277.png", record_pos=(0.12, 0.104), resolution=(1440, 810)))
+    sleep(2)
+    wait(Template(r"tpl1612973584765.png", target_pos=4,
+                   record_pos=(-0.369, -0.24), resolution=(1440, 810)))
+    touch(Template(r"tpl1612973584765.png", target_pos=4,
+                   record_pos=(-0.369, -0.24), resolution=(1440, 810)))
     sleep(2)
     
 
@@ -308,14 +316,39 @@ def main_in_81n():
 
 
 # 从8-1n返回主界面
-def back_home():
-    wait(Template(r"tpl1613057498610.png", record_pos=(-0.445, -0.234), resolution=(1440, 810)))
-    touch(Template(r"tpl1613057498610.png", record_pos=(-0.445, -0.234), resolution=(1440, 810)))
-    sleep(2)
-    wait(Template(r"tpl1612973584765.png", target_pos=4,
-                       record_pos=(-0.369, -0.24), resolution=(1440, 810)))
-    touch(Template(r"tpl1612973584765.png", target_pos=4,
-                       record_pos=(-0.369, -0.24), resolution=(1440, 810)))
+# def back_home():
+# wait(Template(r"tpl1613057498610.png", record_pos=(-0.445, -0.234), resolution=(1440, 810)))
+# touch(Template(r"tpl1613057498610.png", record_pos=(-0.445, -0.234), resolution=(1440, 810)))
+# sleep(2)
+# wait(Template(r"tpl1612973584765.png", target_pos=4,
+#                        record_pos=(-0.369, -0.24), resolution=(1440, 810)))
+# touch(Template(r"tpl1612973584765.png", target_pos=4,
+#                        record_pos=(-0.369, -0.24), resolution=(1440, 810)))
+
+
+# 返回主界面
+# 关闭app，重新登录
+def close_and_start():
+    # 如果在战斗地图中，就终止作战
+    is_figth = exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810)))
+    if is_figth:
+        # 终止战斗并返回主界面
+        end_fight()
+
+    # 获取设备
+    dev = device()
+    # 关闭少女前线
+    stop_app('com.sunborn.girlsfrontline.cn')
+    sleep(5)
+    # 打开少女前线
+    start_app('com.sunborn.girlsfrontline.cn')
+    sleep(5)
+    wait(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
+    touch(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
+    sleep(6)
+    wait(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
+    touch(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
+    sleep(5)
 
 
 # 炸狗流程
@@ -342,9 +375,11 @@ def start_zhagou(num):
     is_exist = exists(Template(r"tpl1612983018269.png", record_pos=(0.049, 0.004), resolution=(1440, 810)))
     if is_exist:
         # 如果已经作战10次啦
-        if num%10 == 0:
+        if num % 10 == 0:
             # 回主界面
-            back_home()
+            # back_home()
+            # 终止战斗并返回主界面
+            end_fight()
             sleep(5)
             # 查看有木有后勤归来
             for i in range(4):
@@ -366,6 +401,17 @@ def again_zhagou(num):
         # 把循环的次数传进去方便判断
         start_zhagou(i+1)
 
+
+
+# dev = device()
+# # 输出设备上安装的软件的包名
+# print(dev.list_app(third_only=True))
+# # 关闭少女前线
+# stop_app('com.sunborn.girlsfrontline.cn')
+# # 打开少女前线
+# start_app('com.sunborn.girlsfrontline.cn')
+
         
 # 开始炸狗，输入要打多少把
 again_zhagou(140)
+
