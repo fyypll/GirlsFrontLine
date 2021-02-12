@@ -74,7 +74,7 @@ def airport_top_left():
 def confirm_team():
     sleep(1)
     wait(Template(r"tpl1612973050340.png",
-                  record_pos=(-0.276, -0.206), resolution=(1440, 810)),intervalfunc=close_and_start)
+                  record_pos=(-0.276, -0.206), resolution=(1440, 810)))
     touch(Template(r"tpl1612973088470.png", record_pos=(
         0.408, 0.216), resolution=(1440, 810)))
 
@@ -84,7 +84,7 @@ def change_renxing():
     airport_bottom_left()
     sleep(2)
     wait(Template(r"tpl1612973222920.png",
-                   record_pos=(-0.301, 0.21), resolution=(1440, 810)),intervalfunc=close_and_start)
+                   record_pos=(-0.301, 0.21), resolution=(1440, 810)))
     touch(Template(r"tpl1612973222920.png",
                    record_pos=(-0.301, 0.21), resolution=(1440, 810)))
     sleep(2)
@@ -119,7 +119,7 @@ def change_renxing():
 # 给二队补给并撤退
 def buji_chetui():
     sleep(12)
-    wait(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)),timeout=40,intervalfunc=close_and_start)
+    wait(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)),timeout=40)
 
     touch(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
     sleep(2)
@@ -257,6 +257,7 @@ def no_food_restart():
 def restart():
 	wait(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810)))
 	touch(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810)))
+    sleep(2)
 	wait(Template(r"tpl1612983068454.png", record_pos=(-0.116, 0.105), resolution=(1440, 810)))
 	touch(Template(r"tpl1612983068454.png", record_pos=(-0.116, 0.105), resolution=(1440, 810)))
 	sleep(6)
@@ -313,16 +314,17 @@ def main_in_81n():
         sleep(2)
         wait(Template(r"tpl1613055791912.png", record_pos=(-0.317, -0.199), resolution=(1440, 810)))
         touch(Template(r"tpl1613055791912.png", target_pos=8, record_pos=(-0.317, -0.199), resolution=(1440, 810)))
+        sleep(1)
         is_81n = exists(Template(r"tpl1613056147161.png", record_pos=(-0.122, -0.153), resolution=(1440, 810)))
         if is_81n:
             wait(Template(r"tpl1613056227863.png", record_pos=(0.449, -0.131), resolution=(1440, 810)))
             touch(Template(r"tpl1613056227863.png", record_pos=(0.449, -0.131), resolution=(1440, 810)))
+            sleep(2)
 
             wait(Template(r"tpl1613061952109.png", record_pos=(0.0, -0.067), resolution=(1440, 810)))
-            sleep(2)
             touch(Template(r"tpl1613061952109.png", record_pos=(0.0, -0.067), resolution=(1440, 810)))
-            wait(Template(r"tpl1613056446830.png", record_pos=(0.278, 0.181), resolution=(1440, 810)))
             sleep(2)
+            wait(Template(r"tpl1613056446830.png", record_pos=(0.278, 0.181), resolution=(1440, 810)))
             touch(Template(r"tpl1613056446830.png", record_pos=(0.278, 0.181), resolution=(1440, 810)))
             sleep(8)
 
@@ -346,21 +348,21 @@ def close_and_start():
     if is_figth:
         # 终止战斗并返回主界面
         end_fight()
-
-    # 获取设备
-    dev = device()
-    # 关闭少女前线
-    stop_app('com.sunborn.girlsfrontline.cn')
-    sleep(5)
-    # 打开少女前线
-    start_app('com.sunborn.girlsfrontline.cn')
-    sleep(5)
-    wait(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
-    touch(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
-    sleep(6)
-    wait(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
-    touch(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
-    sleep(10)
+    else:
+        # 获取设备
+        dev = device()
+        # 关闭少女前线
+        stop_app('com.sunborn.girlsfrontline.cn')
+        sleep(5)
+        # 打开少女前线
+        start_app('com.sunborn.girlsfrontline.cn')
+        sleep(5)
+        wait(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
+        touch(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
+        sleep(10)
+        wait(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
+        touch(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
+        sleep(10)
 
 
 # 炸狗流程
@@ -377,6 +379,7 @@ def start_zhagou(num):
     select_two_team()
     # 确认开始
     start()
+    sleep(2)
     wait(Template(r"tpl1612980410750.png", record_pos=(-0.153, -0.235), resolution=(1440, 810)))
     # 给二队补给并撤退
     buji_chetui()
