@@ -170,6 +170,8 @@ def plan_route():
     touch(Template(r"tpl1612981707528.png", record_pos=(0.426, 0.231), resolution=(1440, 810)))
     # 如果遇到没有弹药和口粮遇敌必败弹窗则重开
     no_food_restart()
+    # 重开后，在地图上开始布局
+    ditu_plan()
     
 
 # 如果装备仓库满了，就拆装备
@@ -255,7 +257,7 @@ def no_food_restart():
         restart()
         # 重启若遇到装备爆仓
         storehouse_full()
-        close_and_start()
+        # close_and_start()
     
 
 # 重新战斗
@@ -361,19 +363,17 @@ def close_and_start():
         sleep(5)
         # 打开少女前线
         start_app('com.sunborn.girlsfrontline.cn')
-        sleep(5)
+        sleep(10)
         wait(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
         touch(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
-        sleep(10)
+        sleep(15)
         wait(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
         touch(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
         sleep(10)
 
 
-# 炸狗流程
-def start_zhagou(num):
-    # 在游戏主界面进入炸狗图
-    main_in_81n()
+# 进入到地图则开始布局
+def ditu_plan():
     # 缩放地图复位
     neihe()
     # 更换打手
@@ -388,6 +388,14 @@ def start_zhagou(num):
     # wait(Template(r"tpl1612980410750.png", record_pos=(-0.153, -0.235), resolution=(1440, 810)))
     # 给二队补给并撤退
     buji_chetui()
+
+
+# 炸狗流程
+def start_zhagou(num):
+    # 在游戏主界面进入炸狗图
+    main_in_81n()
+    # 进入地图开始布局
+    ditu_plan()
     # 给一队规划炸狗路线并执行
     plan_route()
     sleep(150)
