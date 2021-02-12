@@ -170,35 +170,68 @@ def storehouse_full():
                        record_pos=(-0.369, -0.24), resolution=(1440, 810)))
         touch(Template(r"tpl1612973584765.png", target_pos=4,
                        record_pos=(-0.369, -0.24), resolution=(1440, 810)))
+        sleep(2)
         chaizhuangbei()
+    
         
 # 拆解装备
 def chaizhuangbei():
+    # 拆白色装备
+    # 在主页进行定位
     wait(Template(r"tpl1613035238319.png", record_pos=(0.399, -0.062), resolution=(1440, 810)))
     touch(Template(r"tpl1613035238319.png", record_pos=(0.399, -0.062), resolution=(1440, 810)))
+    sleep(2)
     wait(Template(r"tpl1613035315767.png", record_pos=(-0.41, 0.048), resolution=(1440, 810)))
     touch(Template(r"tpl1613035315767.png", record_pos=(-0.41, 0.048), resolution=(1440, 810)))
+    sleep(2)
     wait(Template(r"tpl1613035339578.png", record_pos=(-0.058, -0.119), resolution=(1440, 810)))
+    
     touch(Template(r"tpl1613035339578.png", record_pos=(-0.058, -0.119), resolution=(1440, 810)))
+    sleep(2)
     wait(Template(r"tpl1613037738897.png", record_pos=(-0.231, -0.24), resolution=(1440, 810)))
-    # wait(Template(r"tpl1613037759581.png", record_pos=(0.421, -0.174), resolution=(1440, 810)))
     wait(Template(r"tpl1613037856497.png", record_pos=(0.426, 0.109), resolution=(1440, 810)))
     touch(Template(r"tpl1613037856497.png", record_pos=(0.426, 0.109), resolution=(1440, 810)))
+    sleep(2)
 
     wait(Template(r"tpl1613037838594.png", record_pos=(0.425, 0.108), resolution=(1440, 810)))
     wait(Template(r"tpl1613037917903.png", record_pos=(0.422, 0.214), resolution=(1440, 810)))
     touch(Template(r"tpl1613037917903.png", record_pos=(0.422, 0.214), resolution=(1440, 810)))
+    sleep(2)
     wait(Template(r"tpl1613037938745.png", record_pos=(0.426, 0.224), resolution=(1440, 810)))
     touch(Template(r"tpl1613037938745.png", record_pos=(0.426, 0.224), resolution=(1440, 810)))
+    sleep(2)
     wait(Template(r"tpl1613037981165.png", record_pos=(0.334, -0.15), resolution=(1440, 810)))
     wait(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
     touch(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
-    # 白色装备拆解完成
-    # 准备拆解蓝色装备，预估为12件
+    sleep(2)
+    # 准备拆解蓝色装备
+    wait(Template(r"tpl1613035339578.png", record_pos=(-0.058, -0.119), resolution=(1440, 810)))
+
+    touch(Template(r"tpl1613035339578.png", record_pos=(-0.058, -0.119), resolution=(1440, 810)))
+    
+    # 预估为12件，都选中
     for i in range(12):
         wait(Template(r"tpl1613037838594.png", record_pos=(0.425, 0.108), resolution=(1440, 810)))
         touch(Template(r"tpl1613052692777.png", record_pos=(-0.409, -0.186), resolution=(1440, 810)))
-
+        sleep(1)
+    wait(Template(r"tpl1613037938745.png", record_pos=(0.426, 0.224), resolution=(1440, 810)))
+    touch(Template(r"tpl1613037938745.png", record_pos=(0.426, 0.224), resolution=(1440, 810)))
+    sleep(2)
+    wait(Template(r"tpl1613037981165.png", record_pos=(0.334, -0.15), resolution=(1440, 810)))
+    wait(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
+    touch(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
+    sleep(2)
+    wait(Template(r"tpl1613104619512.png", record_pos=(0.031, -0.183), resolution=(1440, 810)))
+    wait(Template(r"tpl1613104632746.png", record_pos=(0.099, 0.207), resolution=(1440, 810)))
+    touch(Template(r"tpl1613104632746.png", record_pos=(0.099, 0.207), resolution=(1440, 810)))
+    sleep(2)
+    # 拆完装备回到首页
+    wait(Template(r"tpl1612973584765.png", target_pos=4,
+                   record_pos=(-0.369, -0.24), resolution=(1440, 810)))
+    touch(Template(r"tpl1612973584765.png", target_pos=4,
+                   record_pos=(-0.369, -0.24), resolution=(1440, 810)))
+    sleep(2)
+        
         
 # 遇到更换失败，显示弹药口粮耗尽遇敌必败则重开
 def no_food_restart():
@@ -221,8 +254,10 @@ def restart():
 def end_fight():
     wait(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810)))
     touch(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810)))
+    sleep(2)
     wait(Template(r"tpl1613057829277.png", record_pos=(0.12, 0.104), resolution=(1440, 810)))
     touch(Template(r"tpl1613057829277.png", record_pos=(0.12, 0.104), resolution=(1440, 810)))
+    sleep(2)
     
 
 
@@ -276,6 +311,7 @@ def main_in_81n():
 def back_home():
     wait(Template(r"tpl1613057498610.png", record_pos=(-0.445, -0.234), resolution=(1440, 810)))
     touch(Template(r"tpl1613057498610.png", record_pos=(-0.445, -0.234), resolution=(1440, 810)))
+    sleep(2)
     wait(Template(r"tpl1612973584765.png", target_pos=4,
                        record_pos=(-0.369, -0.24), resolution=(1440, 810)))
     touch(Template(r"tpl1612973584765.png", target_pos=4,
@@ -316,11 +352,15 @@ def start_zhagou(num):
                 sleep(5)
             # 开拆装备
             chaizhuangbei()
+            # 重新开始炸狗
+            start_zhagou()
         else:
             # 重启地图
             restart()
             # 装备仓库满了就拆装备
             storehouse_full()
+            # 重新开始炸狗
+            start_zhagou()
 
     
 # 打算运行多少次
