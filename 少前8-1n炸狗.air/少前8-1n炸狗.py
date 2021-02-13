@@ -211,9 +211,9 @@ def plan_route():
     sleep(2)
     touch(Template(r"tpl1612981328795.png", record_pos=(-0.44, 0.181), resolution=(1440, 810)))
     sleep(2)
-    # wait(Template(r"tpl1612984658766.png", target_pos=5, record_pos=(-0.278, 0.188), resolution=(1440, 810)))
-    # touch(Template(r"tpl1612984658766.png", target_pos=4, record_pos=(-0.278, 0.188), resolution=(1440, 810)))
-    touch([275, 680])
+    wait(Template(r"tpl1612984658766.png", target_pos=5, record_pos=(-0.278, 0.188), resolution=(1440, 810)))
+    touch(Template(r"tpl1612984658766.png", target_pos=4, record_pos=(-0.278, 0.188), resolution=(1440, 810)))
+    # touch([275, 680])
     sleep(2)
     wait(Template(r"tpl1612981435916.png", target_pos=1, record_pos=(-0.215, 0.031), resolution=(1440, 810)))
     touch(Template(r"tpl1612981435916.png", target_pos=1, record_pos=(-0.215, 0.031), resolution=(1440, 810)))
@@ -384,9 +384,9 @@ def start_bomb_dog(num):
     main_in_81n()
     # 缩放地图，换zas，布局下梯队
     map_plan()
-    # 布局完成，确认开始回合(确认后将会等待4s)
-    sleep(4)
+    # 布局完成，确认开始回合
     start()
+    sleep(2)
     # 爆仓返回首页并返回True，否则False
     # 这里取反，也就是没爆仓就正常按流程走
     if not storehouse_full():
@@ -397,8 +397,15 @@ def start_bomb_dog(num):
         plan_route()
         # 如果点击确认执行，遇到没有口粮弹药战斗必败的情况，那么就重开进地图重新部署
         if no_food_restart():
+            # 重进地图
             restart()
+            # 缩放地图，换zas，布局下梯队
             map_plan()
+            # 确认部署
+            start()
+            # 给左上角队伍补给并撤退
+            supply_and_retreat()
+            # 给右下角队伍规划路线并点击执行
             plan_route()
         # 如果一切正常,点击执行按钮后没有其它问题弹窗，那么就等待150s
         sleep(150)
