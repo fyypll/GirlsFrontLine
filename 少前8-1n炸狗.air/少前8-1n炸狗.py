@@ -164,9 +164,11 @@ def change_zas():
 def supply_and_retreat():
     # 缩放地图复位
     scaling()
-    wait(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
-    touch(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
-    touch(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
+    wait(Template(r"tpl1613226207153.png", record_pos=(-0.264, -0.159), resolution=(1440, 810)))
+    touch(Template(r"tpl1613226207153.png", record_pos=(-0.264, -0.159), resolution=(1440, 810)))
+    sleep(2)
+    touch(Template(r"tpl1613226509690.png", record_pos=(-0.268, -0.158), resolution=(1440, 810)))
+    
     # 点击选中左上角梯队
     # 上面图片识别有一定几率识别为一队导致脚本出错，遂改为坐标
     # 缩放地图复位，避免点击坐标位置不对
@@ -175,6 +177,7 @@ def supply_and_retreat():
     # touch([281, 667])
     # sleep(2)
     # touch([335, 176])
+    # 后面发现坐标点击比图片识别还不靠谱
     sleep(2)
     wait(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810)))
     sleep(0.5)
@@ -457,24 +460,4 @@ def loop_bomb_dog(num):
 
 # 说吧，你打算炸多少次？资源有限，量力而行哟，那就炸它个140次吧
 loop_bomb_dog(140)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
