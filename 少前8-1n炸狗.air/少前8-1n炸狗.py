@@ -416,7 +416,7 @@ def loop_bomb_dog(num):
         start_bomb_dog(i+1)
         end_time = datetime.datetime.now()
         print("执行完毕，当前次数 >> " + str(i+1) + " 时间 >> " + str(end_time))
-        print("本次任务耗时 >> " + str((end - start).seconds) + " s")
+        print("本次任务耗时 >> " + str((end_time - start_time).seconds) + " s")
 
 
 # 说吧，你打算炸多少次？资源有限，量力而行哟，那就炸它个140次吧
