@@ -1,1 +1,1 @@
-"D:\AirtestIDE\AirtestIDE" runner "F:\AirTest\自动收后勤.air"  --device android://127.0.0.1:5037/127.0.0.1:7555?cap_method=MINICAP_STREAM&&ori_method=MINICAPORI&&touch_method=MINITOUCH --log "C:\Users\maple\AppData\Local\Temp\AirtestIDE\scripts\7eabb7d9fe26d6201f83c179a4555ff2"
+"D:\AirtestIDE\AirtestIDE" runner "F:\AirTest\自动收后勤.air"  --device android://127.0.0.1:5037/127.0.0.1:7555?cap_method=MINICAP_STREAM&&ori_method=MINICAPORI&&touch_method=MINITOUCH --log "D:/AirtestIDE/log_data\7eabb7d9fe26d6201f83c179a4555ff2"
