@@ -99,11 +99,6 @@ def start():
     touch(Template(r"tpl1612972801554.png", record_pos=(
         0.387, 0.231), resolution=(1440, 810)))
     sleep(4)
-    # 如果重启地图了弹窗提示装备爆仓了
-    if storehouse_full():
-        # 从首页进入工厂拆装备
-        chai_zhuang_bei()
-    sleep(8)
 
 
 # 点击左下角的机场
@@ -227,7 +222,7 @@ def plan_route():
     sleep(3)
 
 
-# 如果装备仓库满了，就回首页
+# 如果装备仓库满了，就回首页。爆仓返回True，否则False
 def storehouse_full():
     if exists(Template(r"tpl1613035020293.png", record_pos=(0.0, -0.057), resolution=(1440, 810))):
         wait(Template(r"tpl1613035033982.png", record_pos=(0.128, 0.106), resolution=(1440, 810)))
@@ -299,7 +294,7 @@ def chai_zhuang_bei():
     sleep(2)
 
 
-# 遇到更换失败，显示弹药口粮耗尽遇敌必败
+# 遇到更换失败，显示弹药口粮耗尽遇敌必败，就返回True，否则False
 def no_food_restart():
     if exists(Template(r"tpl1613045862916.png", record_pos=(-0.046, -0.057), resolution=(1440, 810))):
         touch(Template(r"tpl1613045874272.png", record_pos=(-0.09, 0.106), resolution=(1440, 810)))
@@ -365,7 +360,7 @@ def main_in_81n():
             sleep(6)
 
 
-# 缩放地图，换zas，布局下梯队，开始回合并将左上角梯队补给撤退
+# 缩放地图，换zas，布局下梯队
 def map_plan():
     # 缩放地图复位
     scaling()
@@ -375,19 +370,23 @@ def map_plan():
     scaling()
     # 部署两个梯队
     select_two_team()
-    # 布局完成，确认开始回合
-    start()
-    sleep(2)
-    # 给左上角队伍补给并撤退
-    supply_and_retreat()
 
 
 # 从主界面到炸狗一条龙
 def start_bomb_dog(num):
     # 从主界面进入地图，如果在主界面就进8_1n地图，否则啥也不干
     main_in_81n()
-    # 缩放地图，换zas，布局下梯队，开始回合并将左上角梯队补给撤退
+    # 缩放地图，换zas，布局下梯队
     map_plan()
+    # 布局完成，确认开始回合
+    start()
+    # 检查到爆仓，返回首页
+    if storehouse_full():
+        # 从首页进入工厂进入拆解流程
+        chai_zhuang_bei()
+    sleep(2)
+    # 给左上角队伍补给并撤退
+    supply_and_retreat()
     # 计划模式给左下角梯队规划路线并确认执行
     plan_route()
     # 如果点击确认执行，遇到没有口粮弹药战斗必败的情况，那么就重开进地图重新部署
@@ -433,6 +432,12 @@ def loop_bomb_dog(num):
 
 # 说吧，你打算炸多少次？资源有限，量力而行哟，那就炸它个140次吧
 loop_bomb_dog(140)
+
+
+
+
+
+
 
 
 
