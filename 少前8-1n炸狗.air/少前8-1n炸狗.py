@@ -382,42 +382,45 @@ def start_bomb_dog(num):
     map_plan()
     # 布局完成，确认开始回合(确认后将会等待4s)
     start()
-    # 检查是否存在爆仓，是则返回首页并返回True
-    if storehouse_full():
-        # 从首页进入工厂进入拆解流程
-        chai_zhuang_bei()
-        # 拆完装备会自动返回首页，跳出本次循环
-        # 下面的都不执行了，重头再来
-        continue()
-
-    sleep(2)
-    # 给左上角队伍补给并撤退
-    supply_and_retreat()
-    # 计划模式给左下角梯队规划路线并确认执行
-    plan_route()
-    # 如果点击确认执行，遇到没有口粮弹药战斗必败的情况，那么就重开进地图重新部署
-    if no_food_restart():
-        restart()
-        map_plan()
+    # 爆仓返回首页并返回True，否则False
+    # 这里取反，也就是没爆仓就正常按流程走
+    if not storehouse_full():
+        sleep(2)
+        # 给左上角队伍补给并撤退
+        supply_and_retreat()
+        # 计划模式给左下角梯队规划路线并确认执行
         plan_route()
-    # 如果一切正常,点击执行按钮后没有其它问题弹窗，那么就等待150s
-    sleep(150)
-    # 如果战斗结束了(此时弹药刚好用完)
-    if exists(Template(r"tpl1612983018269.png", record_pos=(0.049, 0.004), resolution=(1440, 810))):
-        # 每15回合，拆一次装备
-        if num % 15 == 0:
-            # 此时还在地图上，先终止作战，回到首页
-            end_fight()
-            # 先等3s，加上end_fight的2s，共5s
-            sleep(3)
-            # 回到首页判断下有木有后勤完成归来的小队，收下后勤
-            houqin()
-            # 后勤收完还在首页，那就进工厂开始拆装备
-            chai_zhuang_bei()
-        else:
-            # 如不是15的倍数，该干嘛干嘛
-            # 重启地图
+        # 如果点击确认执行，遇到没有口粮弹药战斗必败的情况，那么就重开进地图重新部署
+        if no_food_restart():
             restart()
+            map_plan()
+            plan_route()
+        # 如果一切正常,点击执行按钮后没有其它问题弹窗，那么就等待150s
+        sleep(150)
+        # 如果战斗结束了(此时弹药刚好用完)
+        if exists(Template(r"tpl1612983018269.png", record_pos=(0.049, 0.004), resolution=(1440, 810))):
+            # 每15回合，拆一次装备
+            if num % 15 == 0:
+                # 此时还在地图上，先终止作战，回到首页
+                end_fight()
+                # 先等3s，加上end_fight的2s，共5s
+                sleep(3)
+                # 回到首页判断下有木有后勤完成归来的小队，收下后勤
+                houqin()
+                # 后勤收完还在首页，那就进工厂开始拆装备
+                chai_zhuang_bei()
+            else:
+                # 如不是15的倍数，该干嘛干嘛
+                # 重启地图
+                restart()
+    else:
+        # 爆仓了，那就返回首页
+        # 上面if语句的storehouse_full()函数执行了检测到爆仓了会返回首页
+        # 现在已经是在首页了。从首页进入工厂进入拆解流程
+        chai_zhuang_bei()
+        # 拆完装备会自动返回首页
+        # 下面的都不执行了，重头再来
+        start_bomb_dog(num)
 
 
 # 循环炸狗
