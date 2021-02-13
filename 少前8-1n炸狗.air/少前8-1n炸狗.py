@@ -286,7 +286,7 @@ def chai_zhuang_bei():
 
 # 遇到更换失败，显示弹药口粮耗尽遇敌必败
 def no_food_restart():
-    if is_existsexists(Template(r"tpl1613045862916.png", record_pos=(-0.046, -0.057), resolution=(1440, 810))):
+    if exists(Template(r"tpl1613045862916.png", record_pos=(-0.046, -0.057), resolution=(1440, 810))):
         touch(Template(r"tpl1613045874272.png", record_pos=(-0.09, 0.106), resolution=(1440, 810)))
         return True
     else:
@@ -421,5 +421,6 @@ def loop_bomb_dog(num):
 
 # 说吧，你打算炸多少次？资源有限，量力而行哟，那就炸它个140次吧
 loop_bomb_dog(140)
+
 
 
