@@ -162,18 +162,22 @@ def change_zas():
 
 # 给左上角小队补给并撤退
 def supply_and_retreat():
-    # wait(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
-    # touch(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
-    # touch(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
+    # 缩放地图复位
+    scaling()
+    wait(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
+    touch(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
+    touch(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
     # 点击选中左上角梯队
     # 上面图片识别有一定几率识别为一队导致脚本出错，遂改为坐标
     # 缩放地图复位，避免点击坐标位置不对
-    scaling()
-    touch([335, 176])
+    # scaling()
+    # touch([335, 176])
+    # touch([281, 667])
+    # sleep(2)
+    # touch([335, 176])
     sleep(2)
-    touch([335, 176])
-    sleep(1)
     wait(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810)))
+    sleep(0.5)
     touch(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810)))
     sleep(2)
     # 等2s以免出现网络波动
@@ -381,6 +385,7 @@ def start_bomb_dog(num):
     # 缩放地图，换zas，布局下梯队
     map_plan()
     # 布局完成，确认开始回合(确认后将会等待4s)
+    sleep(4)
     start()
     # 爆仓返回首页并返回True，否则False
     # 这里取反，也就是没爆仓就正常按流程走
@@ -419,8 +424,8 @@ def start_bomb_dog(num):
         # 现在已经是在首页了。从首页进入工厂进入拆解流程
         chai_zhuang_bei()
         # 拆完装备会自动返回首页
-        # 下面的都不执行了，重头再来
-        start_bomb_dog(num)
+        # 重头再来
+        # start_bomb_dog(num)
 
 
 # 循环炸狗
@@ -441,6 +446,7 @@ def loop_bomb_dog(num):
 
 # 说吧，你打算炸多少次？资源有限，量力而行哟，那就炸它个140次吧
 loop_bomb_dog(140)
+
 
 
 
