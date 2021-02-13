@@ -130,7 +130,7 @@ def confirm_team():
 def change_zas():
     # 首先点击左下角弹出部署队伍界面
     airport_bottom_left()
-    wait(Template(r"tpl1612973222920.png", record_pos=(-0.301, 0.21), resolution=(1440, 810)))
+    wait(Template(r"tpl1612973222920.png", record_pos=(-0.301, 0.21), resolution=(1440, 810)),intervalfunc=close_and_start)
     touch(Template(r"tpl1612973222920.png", record_pos=(-0.301, 0.21), resolution=(1440, 810)))
     sleep(3)
     wait(Template(r"tpl1612973262610.png", record_pos=(-0.188, -0.237), resolution=(1440, 810)))
