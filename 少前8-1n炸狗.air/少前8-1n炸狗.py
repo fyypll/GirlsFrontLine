@@ -98,7 +98,12 @@ def start():
         0.387, 0.231), resolution=(1440, 810)))
     touch(Template(r"tpl1612972801554.png", record_pos=(
         0.387, 0.231), resolution=(1440, 810)))
-    sleep(10)
+    sleep(4)
+    # 如果重启地图了弹窗提示装备爆仓了
+    if storehouse_full():
+        # 从首页进入工厂拆装备
+        chai_zhuang_bei()
+    sleep(8)
 
 
 # 点击左下角的机场
@@ -126,11 +131,19 @@ def confirm_team():
     sleep(1)
 
 
+# 如果没有点击到导致不弹出部署队伍界面
+def no_team():
+    # 那就再次缩放地图
+    scaling()
+    # 再点一次左下角使其弹出部署队伍界面
+    airport_bottom_left()
+
+
 # 更换zas
 def change_zas():
     # 首先点击左下角弹出部署队伍界面
     airport_bottom_left()
-    wait(Template(r"tpl1612973222920.png", record_pos=(-0.301, 0.21), resolution=(1440, 810)),intervalfunc=close_and_start)
+    wait(Template(r"tpl1612973222920.png", record_pos=(-0.301, 0.21), resolution=(1440, 810)),intervalfunc=no_team)
     touch(Template(r"tpl1612973222920.png", record_pos=(-0.301, 0.21), resolution=(1440, 810)))
     sleep(3)
     wait(Template(r"tpl1612973262610.png", record_pos=(-0.188, -0.237), resolution=(1440, 810)))
@@ -159,6 +172,8 @@ def supply_and_retreat():
     # touch(Template(r"tpl1612984403815.png", target_pos=4, record_pos=(-0.235, -0.151), resolution=(1440, 810)))
     # 点击选中左上角梯队
     # 上面图片识别有一定几率识别为一队导致脚本出错，遂改为坐标
+    # 缩放地图复位，避免点击坐标位置不对
+    scaling()
     touch([335, 176])
     sleep(2)
     touch([335, 176])
@@ -380,10 +395,6 @@ def start_bomb_dog(num):
         restart()
         map_plan()
         plan_route()
-    # 如果遇到仓库满了就返回首页
-    if storehouse_full():
-        # 从首页进入工厂拆装备
-        chai_zhuang_bei()
     # 如果一切正常,点击执行按钮后没有其它问题弹窗，那么就等待150s
     sleep(150)
     # 如果战斗结束了(此时弹药刚好用完)
@@ -402,18 +413,19 @@ def start_bomb_dog(num):
             # 如不是15的倍数，该干嘛干嘛
             # 重启地图
             restart()
-            # 如果重启地图了弹窗提示装备爆仓了
-            if storehouse_full():
-                # 从首页进入工厂拆装备
-                chai_zhuang_bei()
 
 
 # 循环炸狗
 def loop_bomb_dog(num):
     for i in range(num):
+        # 记录程序开始执行时间
         start_time = datetime.datetime.now()
         print("开始执行，当前次数 >> " + str(i+1) + " 时间 >> " + str(start_time))
+        
+        # 开始从主界面进入地图进行战斗
         start_bomb_dog(i+1)
+        
+        # 记录程序跑完一套后的时间
         end_time = datetime.datetime.now()
         print("执行完毕，当前次数 >> " + str(i+1) + " 时间 >> " + str(end_time))
         print("本次任务耗时 >> " + str((end_time - start_time).seconds) + " s")
@@ -421,6 +433,17 @@ def loop_bomb_dog(num):
 
 # 说吧，你打算炸多少次？资源有限，量力而行哟，那就炸它个140次吧
 loop_bomb_dog(140)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
