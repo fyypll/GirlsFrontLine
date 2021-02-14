@@ -15,6 +15,7 @@
 先保证一队中的zas空弹药，二队的满弹药，因为进入地图后会将一队的zas和二队的zas互换
 换完就开始部署梯队开打了
 
+确保游戏处于主界面再运行本脚本，否则报错找不到位置
 """
 
 __author__ = "maple"
@@ -167,6 +168,7 @@ def supply_and_retreat():
     wait(Template(r"tpl1613226207153.png", record_pos=(-0.264, -0.159), resolution=(1440, 810)))
     touch(Template(r"tpl1613226207153.png", record_pos=(-0.264, -0.159), resolution=(1440, 810)))
     sleep(2)
+    wait(Template(r"tpl1613226509690.png", record_pos=(-0.268, -0.158), resolution=(1440, 810)))
     touch(Template(r"tpl1613226509690.png", record_pos=(-0.268, -0.158), resolution=(1440, 810)))
     
     # 点击选中左上角梯队
@@ -191,6 +193,7 @@ def supply_and_retreat():
     # 等s以免出现网络波动
     sleep(5)
     wait(Template(r"tpl1612980931491.png", record_pos=(0.263, 0.214), resolution=(1440, 810)))
+    sleep(2)
     touch(Template(r"tpl1612980931491.png", record_pos=(0.263, 0.214), resolution=(1440, 810)))
     # 等2s以免出现网络波动
     sleep(2)
@@ -460,4 +463,5 @@ def loop_bomb_dog(num):
 
 # 说吧，你打算炸多少次？资源有限，量力而行哟，那就炸它个140次吧
 loop_bomb_dog(140)
+
 
