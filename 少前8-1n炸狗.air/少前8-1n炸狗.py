@@ -100,6 +100,10 @@ def start():
     touch(Template(r"tpl1612972801554.png", record_pos=(
         0.387, 0.231), resolution=(1440, 810)))
     sleep(4)
+    # 发现有时候这个按钮没有被点击到，这里点击判断下是不是点到了
+    if exists(Template(r"tpl1612972801554.png", record_pos=(
+        0.387, 0.231), resolution=(1440, 810))):
+        start()
 
 
 # 点击左下角的机场
@@ -422,7 +426,7 @@ def start_bomb_dog(num):
                 # 此时还在地图上，先终止作战，回到首页
                 end_fight()
                 # 先等3s，加上end_fight的2s，共5s
-                sleep(3)
+                sleep(10)
                 # 回到首页判断下有木有后勤完成归来的小队，收下后勤
                 houqin()
                 # 后勤收完还在首页，那就进工厂开始拆装备
@@ -436,7 +440,7 @@ def start_bomb_dog(num):
         # 上面if语句的storehouse_full()函数执行了检测到爆仓了会返回首页
         # 现在已经是在首页了。
         # 先判断有没有后勤归来的队伍
-        sleep(4)
+        sleep(10)
         houqin()
         # 从首页进入工厂进入拆解流程
         chai_zhuang_bei()
