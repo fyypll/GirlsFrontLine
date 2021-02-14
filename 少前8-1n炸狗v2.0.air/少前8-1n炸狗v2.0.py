@@ -330,15 +330,31 @@ def restart():
 # 收后勤任务
 def houqin():
     if exists(Template(r"tpl1612894421046.png",record_pos=(-0.339, -0.077), resolution=(1440, 810))):
-        # 假设4个小队全回来了
-        for i in range(4):
-            if exists(Template(r"tpl1612894421046.png",record_pos=(-0.339, -0.077), resolution=(1440, 810))):
-                touch(Template(r"tpl1612894421046.png",record_pos=(-0.339, -0.077), resolution=(1440, 810)))
-                sleep(3)
-                if exists(Template(r"tpl1612894445416.png",record_pos=(0.001, -0.039), resolution=(1440, 810))):
-                    touch(Template(r"tpl1612894456578.png", record_pos=(0.082, 0.105), resolution=(1440, 810)))
-                sleep(5)
-    sleep(5)
+        touch(Template(r"tpl1612894421046.png",record_pos=(-0.339, -0.077), resolution=(1440, 810)))
+        sleep(3)
+        if exists(Template(r"tpl1612894445416.png",record_pos=(0.001, -0.039), resolution=(1440, 810))):
+            touch(Template(r"tpl1612894456578.png", record_pos=(0.082, 0.105), resolution=(1440, 810)))
+        sleep(5)
+        # 再检查还有木有后勤
+        houqin()
+
+
+# 第一次登录
+def first_login():
+    wait(Template(r"tpl1613318669960.png", record_pos=(-0.151, 0.09), resolution=(1440, 810)))
+    touch(Template(r"tpl1613318669960.png", record_pos=(-0.151, 0.09), resolution=(1440, 810)))
+    wait(Template(r"tpl1613318636018.png", record_pos=(-0.158, 0.09), resolution=(1440, 810)))
+    wait(Template(r"tpl1613318647339.png", record_pos=(0.155, 0.089), resolution=(1440, 810)))
+    wait(Template(r"tpl1613318729048.png", record_pos=(-0.056, -0.099), resolution=(1440, 810)))
+    wait(Template(r"tpl1613318781595.png", record_pos=(-0.026, -0.157), resolution=(1440, 810)))
+    touch(Template(r"tpl1613318781595.png", target_pos=2, record_pos=(-0.026, -0.157), resolution=(1440, 810)))
+    # 可能有多个这种弹窗
+    wait(Template(r"tpl1613318826969.png", record_pos=(0.412, -0.222), resolution=(1440, 810)))
+    touch(Template(r"tpl1613318826969.png", record_pos=(0.412, -0.222), resolution=(1440, 810)))
+    wait(Template(r"tpl1613318935294.png", record_pos=(-0.369, -0.25), resolution=(1440, 810)))
+    touch(Template(r"tpl1613318935294.png", target_pos=4, record_pos=(-0.369, -0.25), resolution=(1440, 810)))
+
+    
 
 
 # 在游戏主界面进入8-1n
