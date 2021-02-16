@@ -253,9 +253,15 @@ def chai_zhuang_bei():
     wait(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
     touch(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
     sleep(2)
-    wait(Template(r"tpl1613104619512.png", record_pos=(0.031, -0.183), resolution=(1440, 810)))
-    wait(Template(r"tpl1613104632746.png", record_pos=(0.099, 0.207), resolution=(1440, 810)))
-    touch(Template(r"tpl1613104632746.png", record_pos=(0.099, 0.207), resolution=(1440, 810)))
+    if exists(Template(r"tpl1613104619512.png", record_pos=(0.031, -0.183), resolution=(1440, 810))):
+        wait(Template(r"tpl1613104632746.png", record_pos=(0.099, 0.207), resolution=(1440, 810)))
+        touch(Template(r"tpl1613104632746.png", record_pos=(0.099, 0.207), resolution=(1440, 810)))
+        sleep(2)
+    if exists(Template(r"tpl1613490589289.png", record_pos=(0.044, -0.178), resolution=(1440, 810))):
+        wait(Template(r"tpl1613104632746.png", record_pos=(0.099, 0.207), resolution=(1440, 810)))
+        touch(Template(r"tpl1613104632746.png", record_pos=(0.099, 0.207), resolution=(1440, 810)))
+
+    
 
 
 # 遇到更换失败，显示弹药口粮耗尽遇敌必败
