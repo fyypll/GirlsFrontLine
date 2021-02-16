@@ -1,1 +1,1 @@
-"D:\AirtestIDE\AirtestIDE" runner "F:\AirTest\少前8-1n炸狗.air"  --device android://127.0.0.1:5037/127.0.0.1:7555?cap_method=MINICAP_STREAM&&ori_method=MINICAPORI&&touch_method=MINITOUCH --log "D:/AirtestIDE/log_data\a24e22bcd653feb81e4033afe3452213"
+"D:\AirtestIDE\AirtestIDE" runner "F:\AirTest\少前8-1n炸狗v3.0.air"  --device android://127.0.0.1:5037/127.0.0.1:7555?cap_method=MINICAP_STREAM&&ori_method=MINICAPORI&&touch_method=MINITOUCH --log "D:/AirtestIDE/log_data\a24e22bcd653feb81e4033afe3452213"
