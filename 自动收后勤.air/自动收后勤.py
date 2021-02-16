@@ -36,5 +36,5 @@ def again_find():
 		print("没有找到,当前时间>>"+times)
 
 while True:
-	sleep(300)
+	sleep(60)
 	again_find()
