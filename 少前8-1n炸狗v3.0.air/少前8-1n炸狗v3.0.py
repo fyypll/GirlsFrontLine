@@ -205,6 +205,13 @@ def storehouse_full():
         sleep(2)
         storehouse_full()
 
+# 点击确认按钮
+def comfirm_button():
+    if exists(Template(r"tpl1613037938745.png", record_pos=(0.426, 0.224), resolution=(1440, 810))):
+        touch(Template(r"tpl1613037938745.png", record_pos=(0.426, 0.224), resolution=(1440, 810)))
+        sleep(2)
+        comfirm_button()
+
 
 # 拆解装备
 def chai_zhuang_bei():
@@ -229,8 +236,8 @@ def chai_zhuang_bei():
     wait(Template(r"tpl1613037917903.png", record_pos=(0.422, 0.214), resolution=(1440, 810)))
     touch(Template(r"tpl1613037917903.png", record_pos=(0.422, 0.214), resolution=(1440, 810)))
     sleep(2)
-    wait(Template(r"tpl1613037938745.png", record_pos=(0.426, 0.224), resolution=(1440, 810)))
-    touch(Template(r"tpl1613037938745.png", record_pos=(0.426, 0.224), resolution=(1440, 810)))
+    # 点击确认按钮
+    comfirm_button()
     sleep(2)
     wait(Template(r"tpl1613037981165.png", record_pos=(0.334, -0.15), resolution=(1440, 810)))
     wait(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
@@ -246,20 +253,24 @@ def chai_zhuang_bei():
         wait(Template(r"tpl1613037838594.png", record_pos=(0.425, 0.108), resolution=(1440, 810)))
         touch(Template(r"tpl1613052692777.png", record_pos=(-0.409, -0.186), resolution=(1440, 810)))
         sleep(1)
-    wait(Template(r"tpl1613037938745.png", record_pos=(0.426, 0.224), resolution=(1440, 810)))
-    touch(Template(r"tpl1613037938745.png", record_pos=(0.426, 0.224), resolution=(1440, 810)))
+    # 点击确认按钮
+    comfirm_button()
     sleep(2)
     wait(Template(r"tpl1613037981165.png", record_pos=(0.334, -0.15), resolution=(1440, 810)))
     wait(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
     touch(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
     sleep(2)
     if exists(Template(r"tpl1613104619512.png", record_pos=(0.031, -0.183), resolution=(1440, 810))):
-        wait(Template(r"tpl1613104632746.png", record_pos=(0.099, 0.207), resolution=(1440, 810)))
-        touch(Template(r"tpl1613104632746.png", record_pos=(0.099, 0.207), resolution=(1440, 810)))
+        # 点击确认按钮
+        comfirm_button()
         sleep(2)
+    # 下面的代码大概...可能...也许...没机会运行了，但先不注释
+    # 因为comfirm_button是检测到确定按钮就点击
+    # 之所以这样做是因为有时候刚好网络波动会造成点击没生效，所以函数写成了确认按钮还存在就要点
+    # 而上面步骤分解有高等级装备就会接着出现确认分解高等级按钮
     if exists(Template(r"tpl1613490589289.png", record_pos=(0.044, -0.178), resolution=(1440, 810))):
-        wait(Template(r"tpl1613104632746.png", record_pos=(0.099, 0.207), resolution=(1440, 810)))
-        touch(Template(r"tpl1613104632746.png", record_pos=(0.099, 0.207), resolution=(1440, 810)))
+        # 点击确认按钮
+        comfirm_button()
 
     
 
