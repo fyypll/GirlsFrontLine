@@ -315,7 +315,7 @@ def close_and_start():
         end_fight()
         sleep(10)
         nav_back()
-        sleep(8)
+        sleep(10)
         houqin()
     # 获取设备
     dev = device()
@@ -413,13 +413,14 @@ def click_strengthen_chai_back():
     sleep(5)
     # 然后点击左上角返回按钮返回首页
     nav_back()
-    sleep(8)
+    sleep(10)
     houqin()
     # 拆装备
     chai_zhuang_bei()
     sleep(5)
     # 拆完装备就返回首页
     nav_back()
+    sleep(10)
     houqin()
 
 
@@ -433,7 +434,7 @@ for i in range(140):
 
     
     # 首先游戏先处于主界面
-    sleep(8)
+    sleep(10)
     # 在主界面就先检测有木有后勤归来，有就收没有就不管
     houqin()
     sleep(5)
@@ -523,6 +524,7 @@ for i in range(140):
             sleep(5)
             # 拆完返回首页
             nav_back()
+            sleep(10)
             houqin()
         else:
             # 如不是15的倍数，该干嘛干嘛
