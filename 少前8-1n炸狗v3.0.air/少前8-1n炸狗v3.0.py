@@ -334,16 +334,16 @@ def close_and_start():
     start_app('com.sunborn.girlsfrontline.cn')
     sleep(10)
     wait(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
-    sleep(2)
     touch(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
-    sleep(15)
-    if exists(Template(r"tpl1613318669960.png", record_pos=(-0.151, 0.09), resolution=(1440, 810))):
-        touch(Template(r"tpl1613318669960.png", target_pos=4, record_pos=(-0.151, 0.09), resolution=(1440, 810)))
-    if exists(Template(r"tpl1613318636018.png", record_pos=(-0.158, 0.09), resolution=(1440, 810))):
-        touch(Template(r"tpl1613318647339.png", record_pos=(0.155, 0.089), resolution=(1440, 810)))
     sleep(15)
     if exists(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810))):
         touch(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
+        sleep(10)
+    if exists(Template(r"tpl1613318669960.png", record_pos=(-0.151, 0.09), resolution=(1440, 810))):
+        touch(Template(r"tpl1613318669960.png", target_pos=4, record_pos=(-0.151, 0.09), resolution=(1440, 810)))
+        sleep(2)
+    if exists(Template(r"tpl1613318636018.png", record_pos=(-0.158, 0.09), resolution=(1440, 810))):
+        touch(Template(r"tpl1613318647339.png", record_pos=(0.155, 0.089), resolution=(1440, 810)))
     # 点击后等待20s左右，大概就进入游戏主界面了
     sleep(20)
     if exists(Template(r"tpl1613318729048.png", record_pos=(-0.056, -0.099), resolution=(1440, 810))):
@@ -359,7 +359,7 @@ def close_and_start():
 # 点击返回按钮(即从活动界面返回)
 def click_back_activity():
     if exists(Template(r"tpl1613318935294.png", record_pos=(-0.369, -0.25), resolution=(1440, 810))):
-        touch(Template(r"tpl1613318935294.png", record_pos=(-0.369, -0.25), resolution=(1440, 810)))
+        touch(Template(r"tpl1613318935294.png", target_pos=4, record_pos=(-0.369, -0.25), resolution=(1440, 810)))
         sleep(10)
         click_back_activity()
 
@@ -408,7 +408,6 @@ def chose_81n_map():
         sleep(2)
         wait(Template(r"tpl1613056446830.png", record_pos=(0.278, 0.181), resolution=(1440, 810)))
         touch(Template(r"tpl1613056446830.png", record_pos=(0.278, 0.181), resolution=(1440, 810)))
-        
 
 
 # 缩放地图，换zas，布局下梯队
@@ -442,6 +441,20 @@ def click_strengthen_chai_back():
     nav_back()
     sleep(10)
     houqin()
+
+
+# 判断当前游戏处于哪一个界面
+# def distinguish_interface():
+#     # 如果在地图且已经开始战斗啦
+#     if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))):
+#         # 终止战斗
+#         end_fight()
+#         sleep(10)
+#         # 返回主界面
+#         nav_back()
+#         sleep(10)
+#         # 检查后勤
+#         houqin()
 
 
 # 这里开始炸狗了
@@ -557,6 +570,8 @@ for i in range(140):
     end_time = datetime.datetime.now()
     print("执行完毕，当前次数 >> " + str(i+1) + " 时间 >> " + str(end_time))
     print("本次任务耗时 >> " + str((end_time - start_time).seconds) + " s")
+
+
 
 
 
