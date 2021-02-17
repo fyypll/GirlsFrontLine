@@ -472,7 +472,7 @@ for i in range(140):
     sleep(2)
     # 撤退左上角梯队
     retreat()
-    sleep(2)
+    sleep(4)
     # 计划模式给左下角梯队规划路线并执行计划
     plan_route()
     sleep(2)
@@ -501,7 +501,7 @@ for i in range(140):
         sleep(2)
         # 撤退左上角梯队
         retreat()
-        sleep(2)
+        sleep(4)
         # 计划模式给左下角梯队规划路线并确认执行
         plan_route()
         sleep(2)
