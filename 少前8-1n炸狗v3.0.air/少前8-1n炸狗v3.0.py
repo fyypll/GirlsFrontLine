@@ -337,27 +337,39 @@ def close_and_start():
     sleep(2)
     touch(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
     sleep(15)
-    wait(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
-    sleep(2)
-    touch(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
-    # 点击后等待15s左右，大概就进入游戏主界面了
+    if exists(Template(r"tpl1613318669960.png", record_pos=(-0.151, 0.09), resolution=(1440, 810))):
+        touch(Template(r"tpl1613318669960.png", target_pos=4, record_pos=(-0.151, 0.09), resolution=(1440, 810)))
+    if exists(Template(r"tpl1613318636018.png", record_pos=(-0.158, 0.09), resolution=(1440, 810))):
+        touch(Template(r"tpl1613318647339.png", record_pos=(0.155, 0.089), resolution=(1440, 810)))
     sleep(15)
+    if exists(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810))):
+        touch(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
+    # 点击后等待20s左右，大概就进入游戏主界面了
+    sleep(20)
+    if exists(Template(r"tpl1613318729048.png", record_pos=(-0.056, -0.099), resolution=(1440, 810))):
+        touch(Template(r"tpl1613318781595.png", target_pos=2, record_pos=(-0.026, -0.157), resolution=(1440, 810)))
+        sleep(10)
+    # 关闭活动弹窗
+    close_activity()
+    sleep(5)
+    # 返回首页
+    click_back_activity()
 
 
-# 第一次登录
-def first_login():
-    wait(Template(r"tpl1613318669960.png", record_pos=(-0.151, 0.09), resolution=(1440, 810)))
-    touch(Template(r"tpl1613318669960.png", record_pos=(-0.151, 0.09), resolution=(1440, 810)))
-    wait(Template(r"tpl1613318636018.png", record_pos=(-0.158, 0.09), resolution=(1440, 810)))
-    wait(Template(r"tpl1613318647339.png", record_pos=(0.155, 0.089), resolution=(1440, 810)))
-    wait(Template(r"tpl1613318729048.png", record_pos=(-0.056, -0.099), resolution=(1440, 810)))
-    wait(Template(r"tpl1613318781595.png", record_pos=(-0.026, -0.157), resolution=(1440, 810)))
-    touch(Template(r"tpl1613318781595.png", target_pos=2, record_pos=(-0.026, -0.157), resolution=(1440, 810)))
-    # 可能有多个这种弹窗
-    wait(Template(r"tpl1613318826969.png", record_pos=(0.412, -0.222), resolution=(1440, 810)))
-    touch(Template(r"tpl1613318826969.png", record_pos=(0.412, -0.222), resolution=(1440, 810)))
-    wait(Template(r"tpl1613318935294.png", record_pos=(-0.369, -0.25), resolution=(1440, 810)))
-    touch(Template(r"tpl1613318935294.png", target_pos=4, record_pos=(-0.369, -0.25), resolution=(1440, 810)))
+# 点击返回按钮(即从活动界面返回)
+def click_back_activity():
+    if exists(Template(r"tpl1613318935294.png", record_pos=(-0.369, -0.25), resolution=(1440, 810))):
+        touch(Template(r"tpl1613318935294.png", record_pos=(-0.369, -0.25), resolution=(1440, 810)))
+        sleep(10)
+        click_back_activity()
+
+
+# 关闭活动弹窗
+def close_activity():
+    if exists(Template(r"tpl1613318826969.png", record_pos=(0.412, -0.222), resolution=(1440, 810))):
+        touch(Template(r"tpl1613318826969.png", record_pos=(0.412, -0.222), resolution=(1440, 810)))
+        sleep(8)
+        close_activity()
 
     
 # 主界面点击战斗
