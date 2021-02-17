@@ -116,6 +116,16 @@ def no_click_team():
     click_airport_bottom_left()
 
 
+# 梯队编成中点击zas
+def click_zas():
+    if exists(Template(r"tpl1612973262610.png", record_pos=(-0.188, -0.237), resolution=(1440, 810))):
+        wait(Template(r"tpl1612973337422.png", record_pos=(-0.158, -0.097), resolution=(1440, 810)))
+        sleep(1)
+        touch(Template(r"tpl1612973337422.png", record_pos=(-0.158, -0.097), resolution=(1440, 810)))
+        sleep(2)
+        click_zas()
+
+
 # 更换zas
 def replace_zas():
     # 首先点击左下角弹出部署队伍界面
@@ -126,10 +136,8 @@ def replace_zas():
     sleep(1)
     touch(Template(r"tpl1612973222920.png", record_pos=(-0.301, 0.21), resolution=(1440, 810)))
     sleep(3)
-    wait(Template(r"tpl1612973262610.png", record_pos=(-0.188, -0.237), resolution=(1440, 810)))
-    wait(Template(r"tpl1612973337422.png", record_pos=(-0.158, -0.097), resolution=(1440, 810)))
-    sleep(1)
-    touch(Template(r"tpl1612973337422.png", record_pos=(-0.158, -0.097), resolution=(1440, 810)))
+    # 梯队编成中点击zas
+    click_zas()
     sleep(2)
     wait(Template(r"tpl1612973383265.png", record_pos=(0.423, -0.147), resolution=(1440, 810)))
     sleep(1)
