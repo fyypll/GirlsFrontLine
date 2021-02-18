@@ -434,6 +434,7 @@ def click_strengthen_chai_back():
     nav_back()
     sleep(10)
     houqin()
+    sleep(10)
     # 拆装备
     chai_zhuang_bei()
     sleep(5)
@@ -552,6 +553,7 @@ for i in range(140):
             sleep(10)
             # 回到首页判断下有木有后勤完成归来的小队，收下后勤
             houqin()
+            sleep(10)
             # 后勤收完还在首页，进工厂开始拆装备
             chai_zhuang_bei()
             sleep(5)
