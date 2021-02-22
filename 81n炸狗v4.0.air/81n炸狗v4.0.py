@@ -463,6 +463,7 @@ for i in range(140):
         sleep(4)
         # 选择8-1n地图，进入
         chose_81n_map()
+        sleep(2)
         # 判断下有木有弹出装备仓库爆仓弹窗
         if exists(Template(r"tpl1613035020293.png", record_pos=(0.0, -0.057), resolution=(1440, 810))):
             # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
@@ -477,6 +478,7 @@ for i in range(140):
         map_plan()
         # 布局完成，点击开始作战
         start_fight()
+        sleep(2)
         # 判断下有木有弹出装备仓库爆仓弹窗
         if exists(Template(r"tpl1613035020293.png", record_pos=(0.0, -0.057), resolution=(1440, 810))):
             # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
@@ -494,14 +496,15 @@ for i in range(140):
         sleep(1)
         # 点击计划模式，给左下角梯队规划路线并执行计划
         plan_route()
+        sleep(2)
         # 如果遇到没有口粮弹药进击必败
-        if exists(Template(r"tpl1613045862916.png", record_pos=(-0.046, -0.057), resolution=(1440, 810))):
-            touch(Template(r"tpl1613045874272.png", record_pos=(-0.09, 0.106), resolution=(1440, 810)))
+        if exists(Template(r"tpl1614003508989.png", record_pos=(-0.048, -0.058), resolution=(1440, 810))):
+            touch(Template(r"tpl1614003553801.png", record_pos=(-0.092, 0.106), resolution=(1440, 810)))
             sleep(1)
             restart()
             continue
         # 等大概130s左右
-        sleep(130)
+        sleep(145)
         # 如果显示弹药耗尽那么就是打完了
         if exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
             # 每15回合，拆一次装备
