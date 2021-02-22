@@ -445,7 +445,7 @@ def time_info(count):
     global start_time, end_time
     end_time = datetime.datetime.now()
     times = str((end_time - start_time).seconds)
-    print("#==============第"+count+"次任务信息=================")
+    print("#==============第"+str(count)+"次任务信息=================")
     print("#")
     print("#    任务开始时间：" + str(start_time))
     print("#    任务结束时间：" + str(end_time))
