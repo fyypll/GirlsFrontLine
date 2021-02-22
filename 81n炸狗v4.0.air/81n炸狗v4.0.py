@@ -35,7 +35,7 @@ auto_setup(__file__)
 ST.FIND_TIMEOUT=60
 # swipe的第二张图、exists、assert_not_exists的全局隐式等待时间
 # ST.FIND_TIMEOUT_TMP=20
-
+start_time, end_time
 
 # 缩放地图复位
 def scaling():
@@ -439,12 +439,25 @@ def click_strengthen_chai_back():
     houqin()
 
 
+# 任务完成信息统计
+def time_info(count):
+    global start_time, end_time
+    end_time = datetime.datetime.now()
+    times = str((end_time - start_time).seconds)
+    print("#==============第"+count+"次任务信息=================")
+    print("#")
+    print("#    任务开始时间：" + str(start_time))
+    print("#    任务结束时间：" + str(end_time))
+    print("#    本次任务耗时：" + times + "秒")
+    print("#")
+    print("#========================================")
+
 # 这里开始炸狗了
 # 说吧，你打算炸多少次？资源有限，量力而行哟，那就炸它个140次吧
 for i in range(140):
     # 记录程序开始执行时间
+    global start_time
     start_time = datetime.datetime.now()
-    print("开始执行，当前次数 >> " + str(i+1) + " 时间 >> " + str(start_time))
     # =======================================================================
     
     # 如果遇到后勤队伍归来
@@ -464,6 +477,8 @@ for i in range(140):
         if exists(Template(r"tpl1613035020293.png", record_pos=(0.0, -0.057), resolution=(1440, 810))):
             # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
             click_strengthen_chai_back()
+            # 打印任务时间信息
+            time_info(i+1)
             # 然后结束本次循环，从头开始
             continue
     if exists(Template(r"tpl1613990312943.png", record_pos=(-0.151, -0.244), resolution=(1440, 810))) and exists(Template(r"tpl1612972801554.png", record_pos=(
@@ -476,7 +491,8 @@ for i in range(140):
         if exists(Template(r"tpl1613035020293.png", record_pos=(0.0, -0.057), resolution=(1440, 810))):
             # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
             click_strengthen_chai_back()
-            # 然后结束本次循环，从头开始
+            # 打印任务时间信息
+            time_info(i+1)
             continue
         # 等几s等到左上角遮挡梯队的横条消失
         sleep(6)
@@ -513,21 +529,21 @@ for i in range(140):
                 # 如不是15的倍数，重启地图
                 restart()
                 sleep(5)
+                # 打印任务时间信息
+                time_info(i+1)
                 continue
     
     if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))) and exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
         restart()
+        # 打印任务时间信息
+        time_info(i+1)
         continue
         
     # 要是都不是上面的情况，那就重启游戏
     close_and_start()
+    # 打印任务时间信息
+    time_info(i+1)
     continue
-    
-    # =======================================================================
-    # 记录程序跑完一套后的时间
-    end_time = datetime.datetime.now()
-    print("执行完毕，当前次数 >> " + str(i+1) + " 时间 >> " + str(end_time))
-    print("本次任务耗时 >> " + str((end_time - start_time).seconds) + " s")
 
 
 
