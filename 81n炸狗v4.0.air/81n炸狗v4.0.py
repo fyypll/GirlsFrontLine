@@ -35,7 +35,8 @@ auto_setup(__file__)
 ST.FIND_TIMEOUT=60
 # swipe的第二张图、exists、assert_not_exists的全局隐式等待时间
 # ST.FIND_TIMEOUT_TMP=20
-start_time, end_time
+start_time = 0
+end_time = 0
 
 # 缩放地图复位
 def scaling():
@@ -456,7 +457,6 @@ def time_info(count):
 # 说吧，你打算炸多少次？资源有限，量力而行哟，那就炸它个140次吧
 for i in range(140):
     # 记录程序开始执行时间
-    global start_time
     start_time = datetime.datetime.now()
     # =======================================================================
     
