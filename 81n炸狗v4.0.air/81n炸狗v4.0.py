@@ -284,16 +284,6 @@ def chai_zhuang_bei():
         comfirm_button()
 
 
-# 遇到更换失败，显示弹药口粮耗尽遇敌必败
-# 先点击取消按钮，然后返回True，没遇到就返回False
-def no_food_and_defeat():
-    if exists(Template(r"tpl1613045862916.png", record_pos=(-0.046, -0.057), resolution=(1440, 810))):
-        touch(Template(r"tpl1613045874272.png", record_pos=(-0.09, 0.106), resolution=(1440, 810)))
-        return True
-    else:
-        return False
-
-
 # 重新开启战斗
 def restart():
     wait(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810)))
@@ -502,8 +492,14 @@ for i in range(140):
         # 补给完了就撤退
         retreat()
         sleep(1)
-        # 计划模式给左下角梯队规划路线并执行计划
+        # 点击计划模式，给左下角梯队规划路线并执行计划
         plan_route()
+        # 如果遇到没有口粮弹药进击必败
+        if exists(Template(r"tpl1613045862916.png", record_pos=(-0.046, -0.057), resolution=(1440, 810))):
+            touch(Template(r"tpl1613045874272.png", record_pos=(-0.09, 0.106), resolution=(1440, 810)))
+            sleep(1)
+            restart()
+            continue
         # 等大概130s左右
         sleep(130)
         # 如果显示弹药耗尽那么就是打完了
