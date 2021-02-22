@@ -79,7 +79,7 @@ def start_fight():
         0.387, 0.231), resolution=(1440, 810))):
         touch(Template(r"tpl1612972801554.png", record_pos=(
         0.387, 0.231), resolution=(1440, 810)))
-        sleep(2)
+        # sleep(2)
         # 这里不能递归调用啦，因为弹出爆仓界面后还是能匹配到这个按钮的
         # 但是这时爆仓界面已经覆盖了按钮，按钮无法被点击，会造成循环点
         # start_fight()
@@ -155,29 +155,30 @@ def replace_zas():
     sleep(1)
     touch(Template(r"tpl1612973435192.png", record_pos=(0.253, 0.174), resolution=(1440, 810)))
     sleep(2)
+    # 点击军营中的zas
     click_barracks_zas()
 
 
 # 补给梯队
 def supply():
-    if exists(Template(r"tpl1613226207153.png", record_pos=(-0.264, -0.159), resolution=(1440, 810))):
-        touch(Template(r"tpl1613226207153.png", record_pos=(-0.264, -0.159), resolution=(1440, 810)))
-        sleep(2)
-    if exists(Template(r"tpl1613226509690.png", record_pos=(-0.268, -0.158), resolution=(1440, 810))):
-        touch(Template(r"tpl1613226509690.png", record_pos=(-0.268, -0.158), resolution=(1440, 810)))
-        sleep(2)
+    if exists(Template(r"tpl1613996095431.png", record_pos=(-0.249, -0.122), resolution=(1440, 810))):
+        touch(Template(r"tpl1613996095431.png", record_pos=(-0.249, -0.122), resolution=(1440, 810)))
+        sleep(1)
+    if exists(Template(r"tpl1613996095431.png", record_pos=(-0.249, -0.122), resolution=(1440, 810))):
+        touch(Template(r"tpl1613996095431.png", record_pos=(-0.249, -0.122), resolution=(1440, 810)))
+        sleep(1)
     if exists(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810))):
         touch(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810)))
 
 
 # 撤退梯队
 def retreat():
-    if exists(Template(r"tpl1612985718458.png", target_pos=4, record_pos=(-0.234, -0.155), resolution=(1440, 810))):
-        touch(Template(r"tpl1612985718458.png", target_pos=4, record_pos=(-0.234, -0.155), resolution=(1440, 810)))
-        sleep(2)
+    if exists(Template(r"tpl1613996095431.png", record_pos=(-0.249, -0.122), resolution=(1440, 810))) and exists(Template(r"tpl1613988823329.png", record_pos=(-0.202, -0.167), resolution=(1440, 810))):
+        touch(Template(r"tpl1613996095431.png", record_pos=(-0.249, -0.122), resolution=(1440, 810)))
+        sleep(1)
     if exists(Template(r"tpl1612980931491.png", record_pos=(0.263, 0.214), resolution=(1440, 810))):
         touch(Template(r"tpl1612980931491.png", record_pos=(0.263, 0.214), resolution=(1440, 810)))
-        sleep(2)
+        sleep(1)
     if exists(Template(r"tpl1612984519435.png", record_pos=(-0.006, -0.037), resolution=(1440, 810))):
         touch(Template(r"tpl1612984551637.png", record_pos=(0.083, 0.107), resolution=(1440, 810)))
 
@@ -187,7 +188,7 @@ def deploy_two_team():
     click_airport_bottom_left()
     sleep(1)
     confirm_deployment()
-    sleep(2)
+    sleep(1)
     click_airport_top_left()
     sleep(1)
     confirm_deployment()
@@ -195,20 +196,17 @@ def deploy_two_team():
 
 # 给左下角梯队规划炸狗路线
 def plan_route():
-    wait(Template(r"tpl1612981259942.png", target_pos=6, record_pos=(-0.367, 0.178), resolution=(1440, 810)))
-    touch(Template(r"tpl1612981259942.png", target_pos=6, record_pos=(-0.367, 0.178), resolution=(1440, 810)))
-    sleep(2)
+    wait(Template(r"tpl1613989042459.png", record_pos=(-0.278, 0.178), resolution=(1440, 810)))
+    touch(Template(r"tpl1613989042459.png", target_pos=4, record_pos=(-0.278, 0.178), resolution=(1440, 810)))
+    sleep(1)
     touch(Template(r"tpl1612981328795.png", record_pos=(-0.44, 0.181), resolution=(1440, 810)))
-    sleep(2)
-    wait(Template(r"tpl1612984658766.png", target_pos=5, record_pos=(-0.278, 0.188), resolution=(1440, 810)))
-    touch(Template(r"tpl1612984658766.png", target_pos=4, record_pos=(-0.278, 0.188), resolution=(1440, 810)))
-    sleep(2)
+    sleep(1)
     wait(Template(r"tpl1612981435916.png", target_pos=1, record_pos=(-0.215, 0.031), resolution=(1440, 810)))
     touch(Template(r"tpl1612981435916.png", target_pos=1, record_pos=(-0.215, 0.031), resolution=(1440, 810)))
-    sleep(2)
+    sleep(1)
     wait(Template(r"tpl1612984857140.png", target_pos=3, record_pos=(-0.288, 0.033), resolution=(1440, 810)))
     touch(Template(r"tpl1612984857140.png", target_pos=3, record_pos=(-0.288, 0.033), resolution=(1440, 810)))
-    sleep(3)
+    sleep(1)
     touch(Template(r"tpl1612981707528.png", record_pos=(0.426, 0.231), resolution=(1440, 810)))
 
 
@@ -216,8 +214,8 @@ def plan_route():
 def storehouse_full():
     if exists(Template(r"tpl1613035020293.png", record_pos=(0.0, -0.057), resolution=(1440, 810))):
         touch(Template(r"tpl1613035033982.png", record_pos=(0.128, 0.106), resolution=(1440, 810)))
-        sleep(2)
-        storehouse_full()
+        # sleep(2)
+        # storehouse_full()
 
 # 点击确认按钮
 def comfirm_button():
@@ -231,17 +229,15 @@ def comfirm_button():
 def chai_zhuang_bei():
     # 首先先拆白色装备
     # 如果是在主页
-    wait(Template(r"tpl1613035238319.png", record_pos=(0.399, -0.062), resolution=(1440, 810)))
-    touch(Template(r"tpl1613035238319.png", record_pos=(0.399, -0.062), resolution=(1440, 810)))
+    wait(Template(r"tpl1613995441235.png", record_pos=(0.403, -0.052), resolution=(1440, 810)))
+    touch(Template(r"tpl1613995441235.png", record_pos=(0.403, -0.052), resolution=(1440, 810)))
     sleep(2)
     wait(Template(r"tpl1613035315767.png", record_pos=(-0.41, 0.048), resolution=(1440, 810)))
     touch(Template(r"tpl1613035315767.png", record_pos=(-0.41, 0.048), resolution=(1440, 810)))
     sleep(1)
-    wait(Template(r"tpl1613035339578.png", record_pos=(-0.058, -0.119), resolution=(1440, 810)))
-    
-    touch(Template(r"tpl1613035339578.png", record_pos=(-0.058, -0.119), resolution=(1440, 810)))
+    wait(Template(r"tpl1613995510960.png", record_pos=(-0.065, -0.126), resolution=(1440, 810)))
+    touch(Template(r"tpl1613995510960.png", record_pos=(-0.065, -0.126), resolution=(1440, 810)))
     sleep(1)
-    wait(Template(r"tpl1613037738897.png", record_pos=(-0.231, -0.24), resolution=(1440, 810)))
     wait(Template(r"tpl1613037856497.png", record_pos=(0.426, 0.109), resolution=(1440, 810)))
     touch(Template(r"tpl1613037856497.png", record_pos=(0.426, 0.109), resolution=(1440, 810)))
     sleep(2)
@@ -259,25 +255,25 @@ def chai_zhuang_bei():
     sleep(2)
     
     # 准备拆解蓝色装备
-    wait(Template(r"tpl1613035339578.png", record_pos=(-0.058, -0.119), resolution=(1440, 810)))
+    wait(Template(r"tpl1613995510960.png", record_pos=(-0.065, -0.126), resolution=(1440, 810)))
 
-    touch(Template(r"tpl1613035339578.png", record_pos=(-0.058, -0.119), resolution=(1440, 810)))
+    touch(Template(r"tpl1613995510960.png", record_pos=(-0.065, -0.126), resolution=(1440, 810)))
     # 预估为12件，都选中
-    for i in range(12):
-        wait(Template(r"tpl1613037838594.png", record_pos=(0.425, 0.108), resolution=(1440, 810)))
-        touch(Template(r"tpl1613052692777.png", record_pos=(-0.409, -0.186), resolution=(1440, 810)))
-        sleep(1)
+    if exists(Template(r"tpl1613037838594.png", record_pos=(0.425, 0.108), resolution=(1440, 810))):
+        for i in range(12):
+            touch(Template(r"tpl1613052692777.png", record_pos=(-0.409, -0.186), resolution=(1440, 810)))
+            sleep(0.2)
     # 点击确认按钮
     comfirm_button()
     sleep(2)
     wait(Template(r"tpl1613037981165.png", record_pos=(0.334, -0.15), resolution=(1440, 810)))
     wait(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
     touch(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
-    sleep(2)
+    sleep(1)
     if exists(Template(r"tpl1613104619512.png", record_pos=(0.031, -0.183), resolution=(1440, 810))):
         # 点击确认按钮
         comfirm_button()
-        sleep(2)
+        sleep(1)
     # 下面的代码大概...可能...也许...没机会运行了，但先不注释
     # 因为comfirm_button是检测到确定按钮就点击
     # 之所以这样做是因为有时候刚好网络波动会造成点击没生效，所以函数写成了确认按钮还存在就要点
@@ -285,8 +281,6 @@ def chai_zhuang_bei():
     if exists(Template(r"tpl1613490589289.png", record_pos=(0.044, -0.178), resolution=(1440, 810))):
         # 点击确认按钮
         comfirm_button()
-
-    
 
 
 # 遇到更换失败，显示弹药口粮耗尽遇敌必败
@@ -312,11 +306,11 @@ def restart():
 def houqin():
     if exists(Template(r"tpl1612894421046.png",record_pos=(-0.339, -0.077), resolution=(1440, 810))):
         touch(Template(r"tpl1612894421046.png",record_pos=(-0.339, -0.077), resolution=(1440, 810)))
-        sleep(3)
+        sleep(1)
         if exists(Template(r"tpl1612894445416.png",record_pos=(0.001, -0.039), resolution=(1440, 810))):
             touch(Template(r"tpl1612894456578.png", record_pos=(0.082, 0.105), resolution=(1440, 810)))
         # 等待一下，因为可能是多个后勤同时归来
-        sleep(5)
+        sleep(10)
         # 再检查还有木有后勤
         houqin()
 
@@ -392,26 +386,22 @@ def click_fight():
 def chose_81n_map():
     if exists(Template(r"tpl1613454816198.png", record_pos=(-0.409, -0.092), resolution=(1440, 810))):
         touch(Template(r"tpl1613454816198.png", record_pos=(-0.409, -0.092), resolution=(1440, 810)))
-        sleep(2)
+        sleep(1)
     if exists(Template(r"tpl1613054490281.png", record_pos=(-0.294, 0.024), resolution=(1440, 810))):
         # 获取当前手机设备
         dev = device()
         # 手指按照顺序依次滑过多个坐标,滑三次以保证滑到底
         for i in range(3):
             dev.swipe_along([[260, 644],[283, 286]])
-        sleep(2)
+        sleep(1)
         wait(Template(r"tpl1613055791912.png", record_pos=(-0.317, -0.199), resolution=(1440, 810)))
         touch(Template(r"tpl1613055791912.png", target_pos=8, record_pos=(-0.317, -0.199), resolution=(1440, 810)))
-        sleep(3)
-        # if exists(Template(r"tpl1613056147161.png", record_pos=(-0.122, -0.153), resolution=(1440, 810))):
-        #     wait(Template(r"tpl1613056227863.png", record_pos=(0.449, -0.131), resolution=(1440, 810)))
-        #     touch(Template(r"tpl1613056227863.png", record_pos=(0.449, -0.131), resolution=(1440, 810)))
-        # 点击夜战
+        sleep(1)
         touch([1363, 207])
-        sleep(2)
+        sleep(1)
         wait(Template(r"tpl1613061952109.png", record_pos=(0.0, -0.067), resolution=(1440, 810)))
         touch(Template(r"tpl1613061952109.png", record_pos=(0.0, -0.067), resolution=(1440, 810)))
-        sleep(2)
+        sleep(1)
         wait(Template(r"tpl1613056446830.png", record_pos=(0.278, 0.181), resolution=(1440, 810)))
         touch(Template(r"tpl1613056446830.png", record_pos=(0.278, 0.181), resolution=(1440, 810)))
 
@@ -422,9 +412,8 @@ def map_plan():
     scaling()
     # 更换打手
     replace_zas()
-    sleep(5)
     nav_back()
-    sleep(8)
+    sleep(4)
     # 缩放地图复位
     scaling()
     # 部署两个梯队
@@ -435,33 +424,19 @@ def map_plan():
 def click_strengthen_chai_back():
     # 如果装备仓库满了就点击装备强化按钮
     storehouse_full()
-    sleep(5)
+    sleep(2)
     # 然后点击左上角返回按钮返回首页
     nav_back()
-    sleep(10)
+    sleep(2)
     houqin()
-    sleep(10)
+    sleep(5)
     # 拆装备
     chai_zhuang_bei()
-    sleep(5)
+    sleep(1)
     # 拆完装备就返回首页
     nav_back()
-    sleep(10)
+    sleep(2)
     houqin()
-
-
-# 判断当前游戏处于哪一个界面
-# def distinguish_interface():
-#     # 如果在地图且已经开始战斗啦
-#     if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))):
-#         # 终止战斗
-#         end_fight()
-#         sleep(10)
-#         # 返回主界面
-#         nav_back()
-#         sleep(10)
-#         # 检查后勤
-#         houqin()
 
 
 # 这里开始炸狗了
@@ -471,119 +446,88 @@ for i in range(140):
     start_time = datetime.datetime.now()
     print("开始执行，当前次数 >> " + str(i+1) + " 时间 >> " + str(start_time))
     # =======================================================================
-
     
-    # 首先游戏先处于主界面
-    sleep(10)
-    # 在主界面就先检测有木有后勤归来，有就收没有就不管
-    houqin()
-    sleep(5)
-    # 如果是在主界面
+    # 如果遇到后勤队伍归来
+    if exists(Template(r"tpl1612894421046.png",record_pos=(-0.339, -0.077), resolution=(1440, 810))):
+        # 收后勤
+        houqin()
+    
+    # 如果有战斗按钮，那就是游戏主界面
     if exists(Template(r"tpl1613054174818.png", record_pos=(0.245, 0.051), resolution=(1440, 810))):
-        # 点击主界面战斗按钮
-        click_fight()
-        sleep(5)
-        # 选择并进入8_1n地图
-        chose_81n_map()
-        sleep(5)
-    # 如果装备仓库满了
-    if exists(Template(r"tpl1613035020293.png", record_pos=(0.0, -0.057), resolution=(1440, 810))):
-        # 仓库满了点击强化按钮，返回首页，进工厂拆装备，然后返回首页
-        click_strengthen_chai_back()
-        # 然后跳出本次循环重头开始
-        continue
-    # 缩放地图，换zas，布局下梯队
-    map_plan()
-    sleep(2)
-    # 布局完成，确认开始回合
-    start_fight()
-    sleep(2)
-    # 如果装备仓库满了
-    if exists(Template(r"tpl1613035020293.png", record_pos=(0.0, -0.057), resolution=(1440, 810))):
-        # 仓库满了点击强化按钮，返回首页，进工厂拆装备，然后返回首页
-        click_strengthen_chai_back()
-        # 然后跳出本次循环重头开始
-        continue
-    sleep(5)
-    # 缩放复位地图
-    # scaling()
-    # 补给左上角梯队
-    supply()
-    sleep(2)
-    # 撤退左上角梯队
-    retreat()
-    sleep(4)
-    # 计划模式给左下角梯队规划路线并执行计划
-    plan_route()
-    sleep(2)
-    # 如果点击确认执行，遇到没有口粮弹药战斗必败的情况，那么就点击取消
-    if no_food_and_defeat():
-        # 重进地图
-        restart()
+        # 点击战斗进入选图
+        touch(Template(r"tpl1613054174818.png", record_pos=(0.245, 0.051), resolution=(1440, 810)))
+        # 大概4s后进入地图选择界面
         sleep(4)
+        # 选择8-1n地图，进入
+        chose_81n_map()
+        # 判断下有木有弹出装备仓库爆仓弹窗
+        if exists(Template(r"tpl1613035020293.png", record_pos=(0.0, -0.057), resolution=(1440, 810))):
+            # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
+            click_strengthen_chai_back()
+            # 然后结束本次循环，从头开始
+            continue
+    if exists(Template(r"tpl1613990312943.png", record_pos=(-0.151, -0.244), resolution=(1440, 810))) and exists(Template(r"tpl1612972801554.png", record_pos=(
+        0.387, 0.231), resolution=(1440, 810))):
         # 缩放地图，换zas，布局下梯队
         map_plan()
-        sleep(2)
-        # 布局完成，确认开始回合
+        # 布局完成，点击开始作战
         start_fight()
-        sleep(2)
-        # 如果装备仓库满了
+        # 判断下有木有弹出装备仓库爆仓弹窗
         if exists(Template(r"tpl1613035020293.png", record_pos=(0.0, -0.057), resolution=(1440, 810))):
-            # 仓库满了点击强化按钮，返回首页，进工厂拆装备，然后返回首页
+            # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
             click_strengthen_chai_back()
-            # 然后跳出本次循环重头开始
+            # 然后结束本次循环，从头开始
             continue
-        sleep(5)
-        # 缩放复位地图
-        # scaling()
+        # 等几s等到左上角遮挡梯队的横条消失
+        sleep(6)
         # 补给左上角梯队
         supply()
-        sleep(2)
-        # 撤退左上角梯队
+        sleep(1)
+        # 补给完了就撤退
         retreat()
-        sleep(4)
-        # 计划模式给左下角梯队规划路线并确认执行
+        sleep(1)
+        # 计划模式给左下角梯队规划路线并执行计划
         plan_route()
-        sleep(2)
-    # 如果一切正常,点击执行按钮后没有其它问题弹窗，那么就等待150s
-    sleep(140)
-    # 如果战斗结束了(此时弹药刚好用完)
-    if exists(Template(r"tpl1612983018269.png", record_pos=(0.049, 0.004), resolution=(1440, 810))):
-        # 每15回合，拆一次装备
-        if (i+1) % 15 == 0:
-            # 此时还在地图上，先终止作战
-            end_fight()
-            sleep(5)
-            # 返回首页
-            nav_back()
-            sleep(10)
-            # 回到首页判断下有木有后勤完成归来的小队，收下后勤
-            houqin()
-            sleep(10)
-            # 后勤收完还在首页，进工厂开始拆装备
-            chai_zhuang_bei()
-            sleep(5)
-            # 拆完返回首页
-            nav_back()
-            sleep(10)
-            houqin()
-        else:
-            # 如不是15的倍数，该干嘛干嘛
-            # 重启地图
-            restart()
-
+        # 等大概130s左右
+        sleep(130)
+        # 如果显示弹药耗尽那么就是打完了
+        if exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
+            # 每15回合，拆一次装备
+            if (i+1) % 15 == 0:
+                # 此时还在地图上，先终止作战回到选图页面
+                end_fight()
+                sleep(5)
+                # 点击左上角返回按钮
+                nav_back()
+                sleep(5)
+                # 回到首页判断下有木有后勤完成归来的小队，收下后勤
+                houqin()
+                # 后勤收完还在首页，进工厂开始拆装备
+                chai_zhuang_bei()
+                sleep(2)
+                # 拆完返回首页
+                nav_back()
+                sleep(5)
+                houqin()
+            else:
+                # 如不是15的倍数，重启地图
+                restart()
+                sleep(5)
+                continue
+    
+    if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))) and exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
+        restart()
+        continue
+        
+    # 要是都不是上面的情况，那就重启游戏
+    close_and_start()
+    continue
     
     # =======================================================================
     # 记录程序跑完一套后的时间
     end_time = datetime.datetime.now()
     print("执行完毕，当前次数 >> " + str(i+1) + " 时间 >> " + str(end_time))
     print("本次任务耗时 >> " + str((end_time - start_time).seconds) + " s")
-
-
-
-
-
-
 
 
 
