@@ -326,7 +326,7 @@ def close_and_start():
     sleep(10)
     wait(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
     touch(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
-    sleep(15)
+    sleep(10)
     if exists(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810))):
         touch(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
         sleep(10)
