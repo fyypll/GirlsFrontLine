@@ -162,11 +162,12 @@ def replace_zas():
 
 # 补给梯队
 def supply():
-    if exists(Template(r"tpl1613996418696.png", record_pos=(-0.266, -0.165), resolution=(1440, 810))):
-        touch(Template(r"tpl1613996418696.png", record_pos=(-0.266, -0.165), resolution=(1440, 810)))
+    if exists(Template(r"tpl1614081581303.png", target_pos=4, record_pos=(-0.233, -0.186), resolution=(1440, 810))):
+        touch(Template(r"tpl1614081581303.png", target_pos=4, record_pos=(-0.233, -0.186), resolution=(1440, 810)))
+
         sleep(1)
-    if exists(Template(r"tpl1613996482354.png", record_pos=(-0.266, -0.165), resolution=(1440, 810))):
-        touch(Template(r"tpl1613996482354.png", record_pos=(-0.266, -0.165), resolution=(1440, 810)))
+    if exists(Template(r"tpl1614081581303.png", target_pos=4, record_pos=(-0.233, -0.186), resolution=(1440, 810))):
+        touch(Template(r"tpl1614081581303.png", target_pos=4, record_pos=(-0.233, -0.186), resolution=(1440, 810)))
         sleep(1)
     if exists(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810))):
         touch(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810)))
@@ -174,8 +175,8 @@ def supply():
 
 # 撤退梯队
 def retreat():
-    if exists(Template(r"tpl1613996482354.png", record_pos=(-0.266, -0.165), resolution=(1440, 810))) and exists(Template(r"tpl1613988823329.png", record_pos=(-0.202, -0.167), resolution=(1440, 810))):
-        touch(Template(r"tpl1613996482354.png", record_pos=(-0.266, -0.165), resolution=(1440, 810)))
+    if exists(Template(r"tpl1614081581303.png", target_pos=4, record_pos=(-0.233, -0.186), resolution=(1440, 810))) and exists(Template(r"tpl1613988823329.png", record_pos=(-0.202, -0.167), resolution=(1440, 810))):
+        touch(Template(r"tpl1614081581303.png", target_pos=4, record_pos=(-0.233, -0.186), resolution=(1440, 810)))
         sleep(1)
     if exists(Template(r"tpl1612980931491.png", record_pos=(0.263, 0.214), resolution=(1440, 810))):
         touch(Template(r"tpl1612980931491.png", record_pos=(0.263, 0.214), resolution=(1440, 810)))
@@ -442,6 +443,7 @@ def time_info(count):
     print("#    本次任务耗时：" + times + "秒")
     print("#")
     print("#========================================")
+
 
 # 这里开始炸狗了
 # 说吧，你打算炸多少次？资源有限，量力而行哟，那就炸它个140次吧
