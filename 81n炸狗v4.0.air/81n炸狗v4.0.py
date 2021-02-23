@@ -428,7 +428,7 @@ def click_strengthen_chai_back():
     sleep(1)
     # 拆完装备就返回首页
     nav_back()
-    sleep(2)
+    sleep(6)
     houqin()
 
 
@@ -452,7 +452,7 @@ for i in range(140):
     # 记录程序开始执行时间
     start_time = datetime.datetime.now()
     # =======================================================================
-    
+    # sleep(5)
     # 如果遇到后勤队伍归来
     if exists(Template(r"tpl1612894421046.png",record_pos=(-0.339, -0.077), resolution=(1440, 810))):
         # 收后勤
