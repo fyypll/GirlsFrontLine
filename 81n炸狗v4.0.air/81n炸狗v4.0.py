@@ -162,12 +162,12 @@ def replace_zas():
 
 # 补给梯队
 def supply():
-    if exists(Template(r"tpl1614081581303.png", target_pos=4, record_pos=(-0.233, -0.186), resolution=(1440, 810))):
-        touch(Template(r"tpl1614081581303.png", target_pos=4, record_pos=(-0.233, -0.186), resolution=(1440, 810)))
+    if exists(Template(r"tpl1614082617655.png", target_pos=9, record_pos=(-0.277, -0.195), resolution=(1440, 810))):
+        touch(Template(r"tpl1614082617655.png", target_pos=9, record_pos=(-0.277, -0.195), resolution=(1440, 810)))
 
         sleep(1)
-    if exists(Template(r"tpl1614081581303.png", target_pos=4, record_pos=(-0.233, -0.186), resolution=(1440, 810))):
-        touch(Template(r"tpl1614081581303.png", target_pos=4, record_pos=(-0.233, -0.186), resolution=(1440, 810)))
+    if exists(Template(r"tpl1614082617655.png", target_pos=9, record_pos=(-0.277, -0.195), resolution=(1440, 810))):
+        touch(Template(r"tpl1614082617655.png", target_pos=9, record_pos=(-0.277, -0.195), resolution=(1440, 810)))
         sleep(1)
     if exists(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810))):
         touch(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810)))
@@ -175,8 +175,9 @@ def supply():
 
 # 撤退梯队
 def retreat():
-    if exists(Template(r"tpl1614081581303.png", target_pos=4, record_pos=(-0.233, -0.186), resolution=(1440, 810))) and exists(Template(r"tpl1613988823329.png", record_pos=(-0.202, -0.167), resolution=(1440, 810))):
-        touch(Template(r"tpl1614081581303.png", target_pos=4, record_pos=(-0.233, -0.186), resolution=(1440, 810)))
+    if exists(Template(r"tpl1614082617655.png", target_pos=9, record_pos=(-0.277, -0.195), resolution=(1440, 810))) and exists(Template(r"tpl1613988823329.png", record_pos=(-0.202, -0.167), resolution=(1440, 810))):
+        touch(Template(r"tpl1614082617655.png", target_pos=9, record_pos=(-0.277, -0.195), resolution=(1440, 810)))
+
         sleep(1)
     if exists(Template(r"tpl1612980931491.png", record_pos=(0.263, 0.214), resolution=(1440, 810))):
         touch(Template(r"tpl1612980931491.png", record_pos=(0.263, 0.214), resolution=(1440, 810)))
