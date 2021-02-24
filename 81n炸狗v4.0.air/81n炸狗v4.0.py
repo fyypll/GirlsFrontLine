@@ -38,6 +38,16 @@ ST.FIND_TIMEOUT=60
 start_time = 0
 end_time = 0
 
+
+# 在地图上才进行缩放操作
+def in_map_scaling():
+    # 判断下，只在地图上才进行缩放
+    if exists(Template(r"tpl1613990312943.png", record_pos=(-0.151, -0.244), resolution=(1440, 810))) and exists(Template(r"tpl1612972801554.png", record_pos=(
+        0.387, 0.231), resolution=(1440, 810))):
+        scaling()
+    
+    
+
 # 缩放地图复位
 def scaling():
     # 获取当前手机设备
@@ -150,15 +160,12 @@ def replace_zas():
     sleep(3)
     # 梯队编成中点击zas
     click_zas()
-    sleep(1)
     wait(Template(r"tpl1612973383265.png", record_pos=(0.423, -0.147), resolution=(1440, 810)))
-    sleep(1)
     touch(Template(r"tpl1612973383265.png", record_pos=(0.423, -0.147), resolution=(1440, 810)))
     sleep(1)
     wait(Template(r"tpl1612973435192.png", record_pos=(0.253, 0.174), resolution=(1440, 810)))
-    sleep(1)
     touch(Template(r"tpl1612973435192.png", record_pos=(0.253, 0.174), resolution=(1440, 810)))
-    sleep(2)
+    sleep(1)
     # 点击军营中的zas
     click_barracks_zas()
 
@@ -313,6 +320,7 @@ def houqin():
 
 # 关闭游戏并重开
 def close_and_start():
+    sleep(2)
     # 如果在战斗地图中，就终止作战
     if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))):
         # 终止战斗并返回主界面
@@ -405,13 +413,13 @@ def chose_81n_map():
 # 缩放地图，换zas，布局下梯队
 def map_plan():
     # 缩放地图复位
-    scaling()
+    in_map_scaling()
     # 更换打手
     replace_zas()
     nav_back()
-    sleep(4)
+    sleep(2)
     # 缩放地图复位
-    scaling()
+    in_map_scaling()
     # 部署两个梯队
     deploy_two_team()
 
@@ -509,12 +517,12 @@ for i in range(140):
             sleep(1)
             restart()
             continue
-        # 等待100s左右
-        sleep(100)
+        # 等待110s左右
+        sleep(110)
         # 使用wait进行等待兼容，等到了就立马执行下一句
         # 因为100s明显是不够的，150s是最高，而时间是在两者间浮动的，也没法写死
         # 如果超时了还是没等到，多半是网络波动导致出问题了，重启下
-        wait(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810)), timeout=50, intervalfunc=close_and_start)
+        wait(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810)), timeout=50)
         # 如果显示弹药耗尽那么就是打完了
         if exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
             # 每15回合，拆一次装备
