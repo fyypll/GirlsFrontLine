@@ -497,7 +497,7 @@ def bomb_dog():
             # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
             click_strengthen_chai_back()
             # 打印任务时间信息
-            time_info(count_one)
+            # time_info(count_one)
             # 然后结束本次循环，从头开始
             # continue
             # bomb_dog()
@@ -515,7 +515,7 @@ def bomb_dog():
             # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
             click_strengthen_chai_back()
             # 打印任务时间信息
-            time_info(count_one)
+            # time_info(count_one)
             # continue
             # bomb_dog()
             return 0
@@ -563,6 +563,9 @@ def bomb_dog():
                 nav_back()
                 sleep(5)
                 houqin()
+                # 打印任务时间信息
+                time_info(count_one)
+                return 0
             else:
                 # 如不是15的倍数，重启地图
                 restart()
@@ -575,7 +578,7 @@ def bomb_dog():
     if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))) and exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
         restart()
         # 打印任务时间信息
-        time_info(count_one)
+        # time_info(count_one)
         # continue
         # bomb_dog()
         return 0
