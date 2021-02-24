@@ -470,7 +470,7 @@ def bomb_dog_retry(func):
 
 
 # 这里开始炸狗了，加上装饰器，失败重跑
-# @bomb_dog_retry
+@bomb_dog_retry
 def bomb_dog():
     global count_one, count_two, start_time
     count_one = count_two + 1
