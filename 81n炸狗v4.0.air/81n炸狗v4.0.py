@@ -582,7 +582,7 @@ def bomb_dog():
     # 若既不在主页，也不在地图尚未开始的页面，那就重启
     close_and_start()
     # 打印任务时间信息
-    time_info(count)
+    time_info(count_one)
     # continue
     # bomb_dog()
 
