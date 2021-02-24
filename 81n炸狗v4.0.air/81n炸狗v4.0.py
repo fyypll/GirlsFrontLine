@@ -468,8 +468,8 @@ def bomb_dog_retry(func):
     return run_case_again
 
 
-# 这里开始炸狗了
-# @bomb_dog_retry
+# 这里开始炸狗了，加上装饰器，失败重跑
+@bomb_dog_retry
 def bomb_dog(i):
     global count, start_time
     count = i+1
