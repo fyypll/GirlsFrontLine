@@ -585,7 +585,8 @@ def bomb_dog():
 # 循环炸狗，默认140次
 for i in range(140):
     count = i + 1
-    bomb_dog(count)
+    bomb_dog()
+
 
 
 
