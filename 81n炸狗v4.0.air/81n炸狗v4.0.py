@@ -470,9 +470,8 @@ def bomb_dog_retry(func):
 
 # 这里开始炸狗了，加上装饰器，失败重跑
 @bomb_dog_retry
-def bomb_dog(i):
+def bomb_dog():
     global count, start_time
-    count = i+1
     # 记录程序开始执行时间
     start_time = datetime.datetime.now()
     # =======================================================================
@@ -499,6 +498,8 @@ def bomb_dog(i):
             time_info(count)
             # 然后结束本次循环，从头开始
             # continue
+            bomb_dog()
+
     if exists(Template(r"tpl1613990312943.png", record_pos=(-0.151, -0.244), resolution=(1440, 810))) and exists(Template(r"tpl1612972801554.png", record_pos=(
         0.387, 0.231), resolution=(1440, 810))):
         # 缩放地图，换zas，布局下梯队
@@ -513,6 +514,7 @@ def bomb_dog(i):
             # 打印任务时间信息
             time_info(count)
             # continue
+            bomb_dog()
         # 等几s等到左上角遮挡梯队的横条消失
         sleep(6)
         # 补给左上角梯队
@@ -530,6 +532,7 @@ def bomb_dog(i):
             sleep(1)
             restart()
             # continue
+            bomb_dog()
         # 等待110s左右
         sleep(110)
         # 使用wait进行等待兼容，等到了就立马执行下一句
@@ -562,23 +565,28 @@ def bomb_dog(i):
                 # 打印任务时间信息
                 time_info(count)
                 # continue
+                bomb_dog()
     
     if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))) and exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
         restart()
         # 打印任务时间信息
         time_info(count)
         # continue
+        bomb_dog()
         
     # 要是都不是上面的情况，那就重启游戏
     close_and_start()
     # 打印任务时间信息
     time_info(count)
     # continue
+    bomb_dog()
 
 
 # 循环炸狗，默认140次
 for i in range(140):
-    bomb_dog(i+1)
+    count = i + 1
+    bomb_dog(count)
+
 
 
 
