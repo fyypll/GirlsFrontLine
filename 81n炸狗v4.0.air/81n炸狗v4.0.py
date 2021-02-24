@@ -37,7 +37,8 @@ ST.FIND_TIMEOUT=60
 # ST.FIND_TIMEOUT_TMP=20
 start_time = 0
 end_time = 0
-count = 0
+count_one = 0
+count_two = 0
 
 
 # 在地图上才进行缩放操作
@@ -469,9 +470,10 @@ def bomb_dog_retry(func):
 
 
 # 这里开始炸狗了，加上装饰器，失败重跑
-@bomb_dog_retry
+# @bomb_dog_retry
 def bomb_dog():
-    global count, start_time
+    global count_one, count_two, start_time
+    count_one = count_two + 1
     # 记录程序开始执行时间
     start_time = datetime.datetime.now()
     # =======================================================================
@@ -495,10 +497,11 @@ def bomb_dog():
             # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
             click_strengthen_chai_back()
             # 打印任务时间信息
-            time_info(count)
+            time_info(count_one)
             # 然后结束本次循环，从头开始
             # continue
-            bomb_dog()
+            # bomb_dog()
+            return 0
 
     if exists(Template(r"tpl1613990312943.png", record_pos=(-0.151, -0.244), resolution=(1440, 810))) and exists(Template(r"tpl1612972801554.png", record_pos=(
         0.387, 0.231), resolution=(1440, 810))):
@@ -512,9 +515,10 @@ def bomb_dog():
             # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
             click_strengthen_chai_back()
             # 打印任务时间信息
-            time_info(count)
+            time_info(count_one)
             # continue
-            bomb_dog()
+            # bomb_dog()
+            return 0
         # 等几s等到左上角遮挡梯队的横条消失
         sleep(6)
         # 补给左上角梯队
@@ -532,7 +536,8 @@ def bomb_dog():
             sleep(1)
             restart()
             # continue
-            bomb_dog()
+            # bomb_dog()
+            return 0
         # 等待110s左右
         sleep(110)
         # 使用wait进行等待兼容，等到了就立马执行下一句
@@ -542,7 +547,7 @@ def bomb_dog():
         # 如果显示弹药耗尽那么就是打完了
         if exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
             # 每15回合，拆一次装备
-            if (count) % 15 == 0:
+            if (count_one) % 15 == 0:
                 # 此时还在地图上，先终止作战回到选图页面
                 end_fight()
                 sleep(5)
@@ -563,29 +568,28 @@ def bomb_dog():
                 restart()
                 sleep(5)
                 # 打印任务时间信息
-                time_info(count)
+                time_info(count_one)
                 # continue
     
     if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))) and exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
         restart()
         # 打印任务时间信息
-        time_info(count)
-        # continue
-        bomb_dog()
-    
-    if not exists(Template(r"tpl1613054174818.png", record_pos=(0.245, 0.051), resolution=(1440, 810))) or not exists(Template(r"tpl1612972801554.png", record_pos=(
-        0.387, 0.231), resolution=(1440, 810))):
-        # 若既不在主页，也不在地图尚未开始的页面，那就重启
-        close_and_start()
-        # 打印任务时间信息
-        # time_info(count)
+        time_info(count_one)
         # continue
         # bomb_dog()
+        return 0
+    
+    # 若既不在主页，也不在地图尚未开始的页面，那就重启
+    close_and_start()
+    # 打印任务时间信息
+    time_info(count)
+    # continue
+    # bomb_dog()
 
 
 # 循环炸狗，默认140次
 for i in range(140):
-    count = i + 1
+    count_two = i
     bomb_dog()
 
 
