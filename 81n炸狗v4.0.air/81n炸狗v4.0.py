@@ -37,6 +37,7 @@ ST.FIND_TIMEOUT=60
 # ST.FIND_TIMEOUT_TMP=20
 start_time = 0
 end_time = 0
+count = 0
 
 
 # 在地图上才进行缩放操作
@@ -457,9 +458,21 @@ def time_info(count):
     print("#========================================")
 
 
+# 异常捕获，失败重跑(这是一个装饰器)
+def retry(func):
+    def run_case_again(*args, **keyargs):
+        try:
+            func(*args, **keyargs)
+        except:
+            close_and_start()
+    return run_case_again
+
+
 # 这里开始炸狗了
 # 说吧，你打算炸多少次？资源有限，量力而行哟，那就炸它个140次吧
 for i in range(140):
+    # global count
+    count = i+1
     # 记录程序开始执行时间
     start_time = datetime.datetime.now()
     # =======================================================================
@@ -483,7 +496,7 @@ for i in range(140):
             # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
             click_strengthen_chai_back()
             # 打印任务时间信息
-            time_info(i+1)
+            time_info(count)
             # 然后结束本次循环，从头开始
             continue
     if exists(Template(r"tpl1613990312943.png", record_pos=(-0.151, -0.244), resolution=(1440, 810))) and exists(Template(r"tpl1612972801554.png", record_pos=(
@@ -498,7 +511,7 @@ for i in range(140):
             # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
             click_strengthen_chai_back()
             # 打印任务时间信息
-            time_info(i+1)
+            time_info(count)
             continue
         # 等几s等到左上角遮挡梯队的横条消失
         sleep(6)
@@ -526,7 +539,7 @@ for i in range(140):
         # 如果显示弹药耗尽那么就是打完了
         if exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
             # 每15回合，拆一次装备
-            if (i+1) % 15 == 0:
+            if (count) % 15 == 0:
                 # 此时还在地图上，先终止作战回到选图页面
                 end_fight()
                 sleep(5)
@@ -547,18 +560,18 @@ for i in range(140):
                 restart()
                 sleep(5)
                 # 打印任务时间信息
-                time_info(i+1)
+                time_info(count)
                 continue
     
     if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))) and exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
         restart()
         # 打印任务时间信息
-        time_info(i+1)
+        time_info(count)
         continue
         
     # 要是都不是上面的情况，那就重启游戏
     close_and_start()
     # 打印任务时间信息
-    time_info(i+1)
+    time_info(count)
     continue
 
