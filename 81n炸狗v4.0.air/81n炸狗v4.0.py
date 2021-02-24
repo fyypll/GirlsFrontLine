@@ -70,6 +70,9 @@ def nav_back():
         touch(Template(r"tpl1612973584765.png", target_pos=4, record_pos=(-0.369, -0.24), resolution=(1440, 810)))
         sleep(2)
         nav_back()
+#     sleep(2)
+#     keyevent("BACK")
+#     sleep(2)
         
 
 
@@ -506,10 +509,14 @@ for i in range(140):
             sleep(1)
             restart()
             continue
-        # 等大概130s左右
+        # 等待100s左右
         sleep(100)
+        # 使用wait进行等待兼容，等到了就立马执行下一句
+        # 因为100s明显是不够的，150s是最高，而时间是在两者间浮动的，也没法写死
+        # 如果超时了还是没等到，多半是网络波动导致出问题了，重启下
+        wait(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810)), timeout=50, intervalfunc=close_and_start)
         # 如果显示弹药耗尽那么就是打完了
-        if exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810)), timeout=45):
+        if exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
             # 每15回合，拆一次装备
             if (i+1) % 15 == 0:
                 # 此时还在地图上，先终止作战回到选图页面
@@ -546,6 +553,4 @@ for i in range(140):
     # 打印任务时间信息
     time_info(i+1)
     continue
-
-
 
