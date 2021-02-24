@@ -570,6 +570,7 @@ def bomb_dog():
                 # 打印任务时间信息
                 time_info(count_one)
                 # continue
+                return 0
     
     if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))) and exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
         restart()
