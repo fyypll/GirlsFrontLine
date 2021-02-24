@@ -469,9 +469,9 @@ def bomb_dog_retry(func):
 
 
 # 这里开始炸狗了
-@bomb_dog_retry
+# @bomb_dog_retry
 def bomb_dog(i):
-    global count
+    global count, start_time
     count = i+1
     # 记录程序开始执行时间
     start_time = datetime.datetime.now()
@@ -579,4 +579,6 @@ def bomb_dog(i):
 # 循环炸狗，默认140次
 for i in range(140):
     bomb_dog(i+1)
+
+
 
