@@ -459,7 +459,7 @@ def time_info(count):
 
 
 # 异常捕获，失败重跑(这是一个装饰器)
-def retry(func):
+def bomb_dog_retry(func):
     def run_case_again(*args, **keyargs):
         try:
             func(*args, **keyargs)
@@ -469,9 +469,9 @@ def retry(func):
 
 
 # 这里开始炸狗了
-# 说吧，你打算炸多少次？资源有限，量力而行哟，那就炸它个140次吧
-for i in range(140):
-    # global count
+@bomb_dog_retry
+def bomb_dog(i):
+    global count
     count = i+1
     # 记录程序开始执行时间
     start_time = datetime.datetime.now()
@@ -498,7 +498,7 @@ for i in range(140):
             # 打印任务时间信息
             time_info(count)
             # 然后结束本次循环，从头开始
-            continue
+            # continue
     if exists(Template(r"tpl1613990312943.png", record_pos=(-0.151, -0.244), resolution=(1440, 810))) and exists(Template(r"tpl1612972801554.png", record_pos=(
         0.387, 0.231), resolution=(1440, 810))):
         # 缩放地图，换zas，布局下梯队
@@ -512,7 +512,7 @@ for i in range(140):
             click_strengthen_chai_back()
             # 打印任务时间信息
             time_info(count)
-            continue
+            # continue
         # 等几s等到左上角遮挡梯队的横条消失
         sleep(6)
         # 补给左上角梯队
@@ -529,7 +529,7 @@ for i in range(140):
             touch(Template(r"tpl1614003553801.png", record_pos=(-0.092, 0.106), resolution=(1440, 810)))
             sleep(1)
             restart()
-            continue
+            # continue
         # 等待110s左右
         sleep(110)
         # 使用wait进行等待兼容，等到了就立马执行下一句
@@ -561,17 +561,22 @@ for i in range(140):
                 sleep(5)
                 # 打印任务时间信息
                 time_info(count)
-                continue
+                # continue
     
     if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))) and exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
         restart()
         # 打印任务时间信息
         time_info(count)
-        continue
+        # continue
         
     # 要是都不是上面的情况，那就重启游戏
     close_and_start()
     # 打印任务时间信息
     time_info(count)
-    continue
+    # continue
+
+
+# 循环炸狗，默认140次
+for i in range(140):
+    bomb_dog(i+1)
 
