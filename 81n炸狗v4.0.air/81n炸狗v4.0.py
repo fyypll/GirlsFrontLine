@@ -507,9 +507,9 @@ for i in range(140):
             restart()
             continue
         # 等大概130s左右
-        sleep(145)
+        sleep(100)
         # 如果显示弹药耗尽那么就是打完了
-        if exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
+        if exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810)), timeout=45):
             # 每15回合，拆一次装备
             if (i+1) % 15 == 0:
                 # 此时还在地图上，先终止作战回到选图页面
