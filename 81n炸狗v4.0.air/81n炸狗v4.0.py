@@ -565,7 +565,6 @@ def bomb_dog():
                 # 打印任务时间信息
                 time_info(count)
                 # continue
-                bomb_dog()
     
     if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))) and exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
         restart()
@@ -573,13 +572,15 @@ def bomb_dog():
         time_info(count)
         # continue
         bomb_dog()
-        
-    # 要是都不是上面的情况，那就重启游戏
-    close_and_start()
-    # 打印任务时间信息
-    time_info(count)
-    # continue
-    bomb_dog()
+    
+    if not exists(Template(r"tpl1613054174818.png", record_pos=(0.245, 0.051), resolution=(1440, 810))) or not exists(Template(r"tpl1612972801554.png", record_pos=(
+        0.387, 0.231), resolution=(1440, 810))):
+        # 若既不在主页，也不在地图尚未开始的页面，那就重启
+        close_and_start()
+        # 打印任务时间信息
+        # time_info(count)
+        # continue
+        # bomb_dog()
 
 
 # 循环炸狗，默认140次
