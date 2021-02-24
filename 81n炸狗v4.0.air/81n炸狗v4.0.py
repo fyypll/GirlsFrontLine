@@ -1,23 +1,4 @@
 # -*- encoding=utf8 -*-
-
-"""
-准备工作：
-
-本脚本基于airtest编写
-使用的MuMu模拟器，分辨率1440*810
-
-1.队伍配置
-一队放老板和zas
-二队单独一个zas
-
-2.注意点
-让一队的zas和二队的zas先磨一点血，以保证在仓库中的受损排序是第一和第二位
-先保证一队中的zas空弹药，二队的满弹药，因为进入地图后会将一队的zas和二队的zas互换(不换也可以，脚本会帮忙补弹药换位的)
-换完就开始部署梯队开打了
-
-确保游戏处于主界面再运行本脚本，否则报错找不到位置
-"""
-
 __author__ = "maple"
 
 from airtest.core.api import *
@@ -155,7 +136,6 @@ def replace_zas():
     # 首先点击左下角弹出部署队伍界面
     click_airport_bottom_left()
     sleep(2)
-    
     wait(Template(r"tpl1612973222920.png", record_pos=(-0.301, 0.21), resolution=(1440, 810)),intervalfunc=no_click_team)
     sleep(1)
     touch(Template(r"tpl1612973222920.png", record_pos=(-0.301, 0.21), resolution=(1440, 810)))
@@ -519,6 +499,7 @@ def bomb_dog():
             # continue
             # bomb_dog()
             return 0
+
         # 等几s等到左上角遮挡梯队的横条消失
         sleep(6)
         # 补给左上角梯队
@@ -538,12 +519,13 @@ def bomb_dog():
             # continue
             # bomb_dog()
             return 0
+
         # 等待110s左右
         sleep(110)
         # 使用wait进行等待兼容，等到了就立马执行下一句
         # 因为100s明显是不够的，150s是最高，而时间是在两者间浮动的，也没法写死
-        # 如果超时了还是没等到，多半是网络波动导致出问题了，重启下
         wait(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810)), timeout=50)
+        
         # 如果显示弹药耗尽那么就是打完了
         if exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
             # 每15回合，拆一次装备
@@ -559,36 +541,26 @@ def bomb_dog():
                 # 后勤收完还在首页，进工厂开始拆装备
                 chai_zhuang_bei()
                 sleep(2)
-                # 拆完返回首页
                 nav_back()
                 sleep(5)
                 houqin()
-                # 打印任务时间信息
                 time_info(count_one)
                 return 0
             else:
                 # 如不是15的倍数，重启地图
                 restart()
                 sleep(5)
-                # 打印任务时间信息
                 time_info(count_one)
-                # continue
                 return 0
     
     if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))) and exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
         restart()
-        # 打印任务时间信息
-        # time_info(count_one)
-        # continue
-        # bomb_dog()
         return 0
     
     # 若既不在主页，也不在地图尚未开始的页面，那就重启
     close_and_start()
     # 打印任务时间信息
     time_info(count_one)
-    # continue
-    # bomb_dog()
 
 
 # 循环炸狗，默认140次
