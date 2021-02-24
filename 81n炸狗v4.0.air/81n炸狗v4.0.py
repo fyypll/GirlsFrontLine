@@ -18,8 +18,7 @@ ST.FIND_TIMEOUT=60
 # ST.FIND_TIMEOUT_TMP=20
 start_time = 0
 end_time = 0
-count_one = 0
-count_two = 0
+count = 0
 
 
 # 在地图上才进行缩放操作
@@ -454,6 +453,7 @@ def bomb_dog_retry(func):
 # 这里开始炸狗了，加上装饰器，失败重跑
 @bomb_dog_retry
 def bomb_dog():
+    global count
     # 如果遇到后勤队伍归来
     if exists(Template(r"tpl1612894421046.png",record_pos=(-0.339, -0.077), resolution=(1440, 810))):
         # 收后勤
@@ -516,7 +516,7 @@ def bomb_dog():
         # 如果显示弹药耗尽那么就是打完了
         if exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
             # 每15回合，拆一次装备
-            if (count_one) % 15 == 0:
+            if (count) % 15 == 0:
                 # 此时还在地图上，先终止作战回到选图页面
                 end_fight()
                 sleep(5)
@@ -554,6 +554,7 @@ for i in range(1, 141):
     start_time = datetime.datetime.now()
     bomb_dog()
     time_info(i)
+    count = i
 
 
 
