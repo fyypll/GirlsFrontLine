@@ -116,17 +116,16 @@ def no_click_team():
 # 梯队编成中点击zas
 def click_zas():
     if exists(Template(r"tpl1612973262610.png", record_pos=(-0.188, -0.237), resolution=(1440, 810))):
-        wait(Template(r"tpl1612973337422.png", record_pos=(-0.158, -0.097), resolution=(1440, 810)))
+        wait(Template(r"tpl1614181809151.png", record_pos=(-0.172, 0.133), resolution=(1440, 810)))
+        touch(Template(r"tpl1614181809151.png", record_pos=(-0.172, 0.133), resolution=(1440, 810)))
         sleep(1)
-        touch(Template(r"tpl1612973337422.png", record_pos=(-0.158, -0.097), resolution=(1440, 810)))
-        sleep(2)
         click_zas()
 
 
 # 点击军营中的zas
 def click_barracks_zas():
-    if exists(Template(r"tpl1612974573045.png", threshold=0.7, rgb=True, target_pos=8, record_pos=(-0.265, -0.176), resolution=(1440, 810))):
-        touch(Template(r"tpl1612974573045.png", threshold=0.7, rgb=True, target_pos=8, record_pos=(-0.265, -0.176), resolution=(1440, 810)))
+    if exists(Template(r"tpl1614181750397.png", record_pos=(-0.324, 0.001), resolution=(1440, 810))):
+        touch(Template(r"tpl1614181750397.png", record_pos=(-0.324, 0.001), resolution=(1440, 810)))
         sleep(2)
         click_barracks_zas()
 
@@ -142,8 +141,8 @@ def replace_zas():
     sleep(3)
     # 梯队编成中点击zas
     click_zas()
-    wait(Template(r"tpl1612973383265.png", record_pos=(0.423, -0.147), resolution=(1440, 810)))
-    touch(Template(r"tpl1612973383265.png", record_pos=(0.423, -0.147), resolution=(1440, 810)))
+    wait(Template(r"tpl1614181942576.png", record_pos=(0.405, -0.181), resolution=(1440, 810)))
+    touch(Template(r"tpl1614181942576.png", record_pos=(0.405, -0.181), resolution=(1440, 810)))
     sleep(1)
     wait(Template(r"tpl1612973435192.png", record_pos=(0.253, 0.174), resolution=(1440, 810)))
     touch(Template(r"tpl1612973435192.png", record_pos=(0.253, 0.174), resolution=(1440, 810)))
@@ -247,7 +246,7 @@ def chai_zhuang_bei():
     wait(Template(r"tpl1613037981165.png", record_pos=(0.334, -0.15), resolution=(1440, 810)))
     wait(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
     touch(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
-    sleep(2)
+    sleep(1)
     
     # 准备拆解蓝色装备
     wait(Template(r"tpl1613995510960.png", record_pos=(-0.065, -0.126), resolution=(1440, 810)))
@@ -260,7 +259,7 @@ def chai_zhuang_bei():
             sleep(0.2)
     # 点击确认按钮
     comfirm_button()
-    sleep(2)
+    sleep(1)
     wait(Template(r"tpl1613037981165.png", record_pos=(0.334, -0.15), resolution=(1440, 810)))
     wait(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
     touch(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
@@ -295,7 +294,7 @@ def houqin():
         if exists(Template(r"tpl1612894445416.png",record_pos=(0.001, -0.039), resolution=(1440, 810))):
             touch(Template(r"tpl1612894456578.png", record_pos=(0.082, 0.105), resolution=(1440, 810)))
         # 等待一下，因为可能是多个后勤同时归来
-        sleep(10)
+        sleep(8)
         # 再检查还有木有后勤
         houqin()
 
@@ -318,10 +317,9 @@ def close_and_start():
     sleep(5)
     # 打开少女前线
     start_app('com.sunborn.girlsfrontline.cn')
-    sleep(10)
     wait(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
     touch(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
-    sleep(10)
+    wait(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
     if exists(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810))):
         touch(Template(r"tpl1613108634772.png", record_pos=(-0.297, -0.178), resolution=(1440, 810)))
         sleep(10)
@@ -330,8 +328,12 @@ def close_and_start():
         sleep(2)
     if exists(Template(r"tpl1613318636018.png", record_pos=(-0.158, 0.09), resolution=(1440, 810))):
         touch(Template(r"tpl1613318647339.png", record_pos=(0.155, 0.089), resolution=(1440, 810)))
-    # 点击后等待20s左右，大概就进入游戏主界面了
-    sleep(20)
+    sleep(10)
+    if exists(Template(r"tpl1613054174818.png", record_pos=(0.245, 0.051), resolution=(1440, 810))):
+        return 0
+    else:
+        # 点击后等待10s左右，大概就进入游戏主界面了
+        sleep(10)
     if exists(Template(r"tpl1613318729048.png", record_pos=(-0.056, -0.099), resolution=(1440, 810))):
         touch(Template(r"tpl1613318781595.png", target_pos=2, record_pos=(-0.026, -0.157), resolution=(1440, 810)))
         sleep(10)
@@ -452,12 +454,6 @@ def bomb_dog_retry(func):
 # 这里开始炸狗了，加上装饰器，失败重跑
 @bomb_dog_retry
 def bomb_dog():
-    global count_one, count_two, start_time
-    count_one = count_two + 1
-    # 记录程序开始执行时间
-    start_time = datetime.datetime.now()
-    # =======================================================================
-    # sleep(5)
     # 如果遇到后勤队伍归来
     if exists(Template(r"tpl1612894421046.png",record_pos=(-0.339, -0.077), resolution=(1440, 810))):
         # 收后勤
@@ -476,11 +472,6 @@ def bomb_dog():
         if exists(Template(r"tpl1613035020293.png", record_pos=(0.0, -0.057), resolution=(1440, 810))):
             # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
             click_strengthen_chai_back()
-            # 打印任务时间信息
-            # time_info(count_one)
-            # 然后结束本次循环，从头开始
-            # continue
-            # bomb_dog()
             return 0
 
     if exists(Template(r"tpl1613990312943.png", record_pos=(-0.151, -0.244), resolution=(1440, 810))) and exists(Template(r"tpl1612972801554.png", record_pos=(
@@ -494,14 +485,10 @@ def bomb_dog():
         if exists(Template(r"tpl1613035020293.png", record_pos=(0.0, -0.057), resolution=(1440, 810))):
             # 有就点击强化，返回首页，进工厂，分解，然后再返回首页
             click_strengthen_chai_back()
-            # 打印任务时间信息
-            # time_info(count_one)
-            # continue
-            # bomb_dog()
             return 0
 
         # 等几s等到左上角遮挡梯队的横条消失
-        sleep(6)
+        sleep(4)
         # 补给左上角梯队
         supply()
         sleep(1)
@@ -544,29 +531,29 @@ def bomb_dog():
                 nav_back()
                 sleep(5)
                 houqin()
-                time_info(count_one)
                 return 0
             else:
+                sleep(1)
                 # 如不是15的倍数，重启地图
                 restart()
                 sleep(5)
-                time_info(count_one)
                 return 0
     
     if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))) and exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
+        sleep(1)
         restart()
         return 0
     
     # 若既不在主页，也不在地图尚未开始的页面，那就重启
     close_and_start()
     # 打印任务时间信息
-    time_info(count_one)
 
 
 # 循环炸狗，默认140次
-for i in range(140):
-    count_two = i
+for i in range(1, 141):
+    start_time = datetime.datetime.now()
     bomb_dog()
+    time_info(i)
 
 
 
