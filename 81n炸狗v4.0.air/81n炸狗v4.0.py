@@ -549,14 +549,16 @@ def bomb_dog():
     # 打印任务时间信息
 
 
-# 循环炸狗，默认140次
-for i in range(1, 141):
+# 循环炸狗
+for i in range(1, 101):
     start_time = datetime.datetime.now()
     bomb_dog()
     time_info(i)
     count = i
 
 
-
-
+# 炸狗任务完成后切换为收后勤
+while True:
+    houqin()
+    sleep(60)
 
