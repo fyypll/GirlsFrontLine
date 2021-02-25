@@ -446,7 +446,10 @@ def bomb_dog_retry(func):
         try:
             func(*args, **keyargs)
         except:
-            close_and_start()
+            try:
+                func(*args, **keyargs)
+            except:
+                close_and_start()
     return run_case_again
 
 
@@ -550,7 +553,7 @@ def bomb_dog():
 
 
 # 循环炸狗
-for i in range(1, 101):
+for i in range(1, 51):
     start_time = datetime.datetime.now()
     bomb_dog()
     time_info(i)

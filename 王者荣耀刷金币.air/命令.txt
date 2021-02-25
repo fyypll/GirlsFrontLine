@@ -1,0 +1,3 @@
+"D:\AirtestIDE\AirtestIDE" runner "F:\AirTest\王者荣耀刷金币.air"  --device android://127.0.0.1:5037/127.0.0.1:21503?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH --log "D:/AirtestIDE/log_data\a57c130f9f05fd7b39f9b9ce47aaced7"
+
+airtest run "F:\\AirTest\\王者荣耀刷金币.air" --device Android://127.0.0.1:5037/127.0.0.1:21503?cap_method=JAVACAP&&ori_method=MINICAPORI&&touch_method=MINITOUCH
