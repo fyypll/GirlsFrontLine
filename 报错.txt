@@ -100,3 +100,145 @@ tils\logwraper.py", line 90, in wrapper
 ore\api.py", line 562, in sleep
     time.sleep(secs)
 KeyboardInterrupt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[10:10:24][ERROR]<airtest.core.api> Traceback (most recent call last):
+  File "F:\AirTest\81n炸狗v4.0.air\81n炸狗v4.0.py", line 447, in run_case_again
+    func(*args, **keyargs)
+  File "F:\AirTest\81n炸狗v4.0.air\81n炸狗v4.0.py", line 514, in bomb_dog
+    wait(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution
+=(1440, 810)), timeout=50)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\u
+tils\logwraper.py", line 90, in wrapper
+    res = f(*args, **kwargs)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\c
+ore\api.py", line 591, in wait
+    pos = loop_find(v, timeout=timeout, interval=interval, intervalfunc=interval
+func)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\u
+tils\logwraper.py", line 90, in wrapper
+    res = f(*args, **kwargs)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\c
+ore\cv.py", line 77, in loop_find
+    raise TargetNotFoundError('Picture %s not found in screen' % query)
+airtest.core.error.TargetNotFoundError: 'Picture Template(81n炸狗v4.0.air\\tpl16
+13989550759.png) not found in screen'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\c
+li\runner.py", line 70, in runTest
+    exec(compile(code.encode("utf-8"), pyfilepath, 'exec'), self.scope)
+  File "F:\AirTest\81n炸狗v4.0.air\81n炸狗v4.0.py", line 555, in <module>
+    bomb_dog()
+  File "F:\AirTest\81n炸狗v4.0.air\81n炸狗v4.0.py", line 449, in run_case_again
+    close_and_start()
+  File "F:\AirTest\81n炸狗v4.0.air\81n炸狗v4.0.py", line 307, in close_and_start
+
+    end_fight()
+  File "F:\AirTest\81n炸狗v4.0.air\81n炸狗v4.0.py", line 55, in end_fight
+    wait(Template(r"tpl1613057829277.png", record_pos=(0.12, 0.104), resolution=
+(1440, 810)))
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\u
+tils\logwraper.py", line 90, in wrapper
+    res = f(*args, **kwargs)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\c
+ore\api.py", line 591, in wait
+    pos = loop_find(v, timeout=timeout, interval=interval, intervalfunc=interval
+func)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\u
+tils\logwraper.py", line 90, in wrapper
+    res = f(*args, **kwargs)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\c
+ore\cv.py", line 77, in loop_find
+    raise TargetNotFoundError('Picture %s not found in screen' % query)
+airtest.core.error.TargetNotFoundError: 'Picture Template(81n炸狗v4.0.air\\tpl16
+13057829277.png) not found in screen'
+
+======================================================================
+ERROR: runTest (airtest.cli.runner.AirtestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\AirTest\81n炸狗v4.0.air\81n炸狗v4.0.py", line 447, in run_case_again
+    func(*args, **keyargs)
+  File "F:\AirTest\81n炸狗v4.0.air\81n炸狗v4.0.py", line 514, in bomb_dog
+    wait(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution
+=(1440, 810)), timeout=50)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\u
+tils\logwraper.py", line 90, in wrapper
+    res = f(*args, **kwargs)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\c
+ore\api.py", line 591, in wait
+    pos = loop_find(v, timeout=timeout, interval=interval, intervalfunc=interval
+func)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\u
+tils\logwraper.py", line 90, in wrapper
+    res = f(*args, **kwargs)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\c
+ore\cv.py", line 77, in loop_find
+    raise TargetNotFoundError('Picture %s not found in screen' % query)
+airtest.core.error.TargetNotFoundError: 'Picture Template(81n炸狗v4.0.air\\tpl16
+13989550759.png) not found in screen'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\c
+li\runner.py", line 73, in runTest
+    six.reraise(*sys.exc_info())
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\six.py",
+line 703, in reraise
+    raise value
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\c
+li\runner.py", line 70, in runTest
+    exec(compile(code.encode("utf-8"), pyfilepath, 'exec'), self.scope)
+  File "F:\AirTest\81n炸狗v4.0.air\81n炸狗v4.0.py", line 555, in <module>
+    bomb_dog()
+  File "F:\AirTest\81n炸狗v4.0.air\81n炸狗v4.0.py", line 449, in run_case_again
+    close_and_start()
+  File "F:\AirTest\81n炸狗v4.0.air\81n炸狗v4.0.py", line 307, in close_and_start
+
+    end_fight()
+  File "F:\AirTest\81n炸狗v4.0.air\81n炸狗v4.0.py", line 55, in end_fight
+    wait(Template(r"tpl1613057829277.png", record_pos=(0.12, 0.104), resolution=
+(1440, 810)))
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\u
+tils\logwraper.py", line 90, in wrapper
+    res = f(*args, **kwargs)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\c
+ore\api.py", line 591, in wait
+    pos = loop_find(v, timeout=timeout, interval=interval, intervalfunc=interval
+func)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\u
+tils\logwraper.py", line 90, in wrapper
+    res = f(*args, **kwargs)
+  File "c:\users\maple\.virtualenvs\airtest-fkwpavgu\lib\site-packages\airtest\c
+ore\cv.py", line 77, in loop_find
+    raise TargetNotFoundError('Picture %s not found in screen' % query)
+airtest.core.error.TargetNotFoundError: 'Picture Template(81n炸狗v4.0.air\\tpl16
+13057829277.png) not found in screen'
+
+----------------------------------------------------------------------
+Ran 1 test in 1465.031s
+
+FAILED (errors=1)

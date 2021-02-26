@@ -18,7 +18,7 @@ ST.FIND_TIMEOUT=60
 # ST.FIND_TIMEOUT_TMP=20
 start_time = 0
 end_time = 0
-count = 0
+count = 1
 
 
 # 在地图上才进行缩放操作
@@ -437,7 +437,7 @@ def time_info(count):
     print("#    任务结束时间：" + str(end_time))
     print("#    本次任务耗时：" + times + "秒")
     print("#")
-    print("#========================================")
+    print("#=============================================")
 
 
 # 异常捕获，失败重跑(这是一个装饰器)
@@ -446,10 +446,7 @@ def bomb_dog_retry(func):
         try:
             func(*args, **keyargs)
         except:
-            try:
-                func(*args, **keyargs)
-            except:
-                close_and_start()
+            close_and_start()
     return run_case_again
 
 
@@ -553,7 +550,7 @@ def bomb_dog():
 
 
 # 循环炸狗
-for i in range(1, 51):
+for i in range(1, 101):
     start_time = datetime.datetime.now()
     bomb_dog()
     time_info(i)
@@ -561,6 +558,7 @@ for i in range(1, 51):
 
 
 # 炸狗任务完成后切换为收后勤
+close_and_start()
 while True:
     houqin()
     sleep(60)
