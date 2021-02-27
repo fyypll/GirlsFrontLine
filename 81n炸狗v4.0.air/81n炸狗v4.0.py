@@ -37,7 +37,7 @@ def scaling():
     # 向内捏合，捏两次保证缩到最小
     for i in range(2):
         dev.pinch(in_or_out='in', center=None, percent=0.5)
-        sleep(1.5)
+        sleep(2)
     # 向外捏合
     dev.pinch(in_or_out='out', center=None, percent=0.1)
     sleep(1)
@@ -117,7 +117,7 @@ def click_zas():
     if exists(Template(r"tpl1612973262610.png", record_pos=(-0.188, -0.237), resolution=(1440, 810))):
         wait(Template(r"tpl1614181809151.png", record_pos=(-0.172, 0.133), resolution=(1440, 810)))
         touch(Template(r"tpl1614181809151.png", record_pos=(-0.172, 0.133), resolution=(1440, 810)))
-        sleep(1)
+        sleep(3)
         click_zas()
 
 
@@ -137,7 +137,7 @@ def replace_zas():
     wait(Template(r"tpl1612973222920.png", record_pos=(-0.301, 0.21), resolution=(1440, 810)),intervalfunc=no_click_team)
     sleep(1)
     touch(Template(r"tpl1612973222920.png", record_pos=(-0.301, 0.21), resolution=(1440, 810)))
-    sleep(3)
+    sleep(4)
     # 梯队编成中点击zas
     click_zas()
     wait(Template(r"tpl1614181942576.png", record_pos=(0.405, -0.181), resolution=(1440, 810)))
@@ -152,12 +152,10 @@ def replace_zas():
 
 # 补给梯队
 def supply():
-    if exists(Template(r"tpl1614082617655.png", target_pos=9, record_pos=(-0.277, -0.195), resolution=(1440, 810))):
-        touch(Template(r"tpl1614082617655.png", target_pos=9, record_pos=(-0.277, -0.195), resolution=(1440, 810)))
-
-        sleep(1)
-    if exists(Template(r"tpl1614082617655.png", target_pos=9, record_pos=(-0.277, -0.195), resolution=(1440, 810))):
-        touch(Template(r"tpl1614082617655.png", target_pos=9, record_pos=(-0.277, -0.195), resolution=(1440, 810)))
+    if exists(Template(r"tpl1614396241356.png", target_pos=2, record_pos=(-0.258, -0.009), resolution=(1440, 810))):
+        touch(Template(r"tpl1614396241356.png", target_pos=2, record_pos=(-0.258, -0.009), resolution=(1440, 810)))
+        sleep(2)
+        touch(Template(r"tpl1614396241356.png", target_pos=2, record_pos=(-0.258, -0.009), resolution=(1440, 810)))
         sleep(1)
     if exists(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810))):
         touch(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810)))
@@ -165,8 +163,8 @@ def supply():
 
 # 撤退梯队
 def retreat():
-    if exists(Template(r"tpl1614082617655.png", target_pos=9, record_pos=(-0.277, -0.195), resolution=(1440, 810))) and exists(Template(r"tpl1613988823329.png", record_pos=(-0.202, -0.167), resolution=(1440, 810))):
-        touch(Template(r"tpl1614082617655.png", target_pos=9, record_pos=(-0.277, -0.195), resolution=(1440, 810)))
+    if exists(Template(r"tpl1614396241356.png", target_pos=2, record_pos=(-0.258, -0.009), resolution=(1440, 810))) and exists(Template(r"tpl1613988823329.png", record_pos=(-0.202, -0.167), resolution=(1440, 810))):
+        touch(Template(r"tpl1614396241356.png", target_pos=2, record_pos=(-0.258, -0.009), resolution=(1440, 810)))
 
         sleep(1)
     if exists(Template(r"tpl1612980931491.png", record_pos=(0.263, 0.214), resolution=(1440, 810))):
@@ -189,8 +187,8 @@ def deploy_two_team():
 
 # 给左下角梯队规划炸狗路线
 def plan_route():
-    wait(Template(r"tpl1613989042459.png", record_pos=(-0.278, 0.178), resolution=(1440, 810)))
-    touch(Template(r"tpl1613989042459.png", target_pos=4, record_pos=(-0.278, 0.178), resolution=(1440, 810)))
+    wait(Template(r"tpl1614396000854.png", target_pos=7, record_pos=(-0.171, 0.059), resolution=(1440, 810)))
+    touch(Template(r"tpl1614396000854.png", target_pos=7, record_pos=(-0.171, 0.059), resolution=(1440, 810)))
     sleep(1)
     touch(Template(r"tpl1612981328795.png", record_pos=(-0.44, 0.181), resolution=(1440, 810)))
     sleep(1)
