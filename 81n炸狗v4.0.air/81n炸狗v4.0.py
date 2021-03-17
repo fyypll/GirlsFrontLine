@@ -4,12 +4,17 @@ __author__ = "maple"
 from airtest.core.api import *
 from airtest.core.android.rotation import XYTransformer
 from airtest.core.android.android import Android
+from airtest.cli.parser import cli_setup
 import datetime
 import logging
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
-auto_setup(__file__)
+if not cli_setup():
+    auto_setup(__file__, logdir=True, devices=[
+            "Android://127.0.0.1:5037/127.0.0.1:7555",
+    ])
+# auto_setup(__file__)
 
 # 设置隐式(默认)等待时长
 # touch、wait、swipe的第一张图片识别时长，assert_exists、double_click的断言时长将受此影响
@@ -62,9 +67,7 @@ def nav_back():
         touch(Template(r"tpl1612973584765.png", target_pos=4, record_pos=(-0.369, -0.24), resolution=(1440, 810)))
         sleep(2)
         nav_back()
-#     sleep(2)
-#     keyevent("BACK")
-#     sleep(2)
+        # keyevent("BACK")
         
 
 
@@ -339,6 +342,7 @@ def close_and_start():
     sleep(5)
     # 返回首页
     click_back_activity()
+    print("重启任务完成!")
 
 
 # 点击返回按钮(即从活动界面返回)

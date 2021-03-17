@@ -2,32 +2,25 @@
 __author__ = "maple"
 
 from airtest.core.api import *
+from airtest.cli.parser import cli_setup
 import logging
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
-auto_setup(__file__)
+if not cli_setup():
+ auto_setup(__file__, logdir=None, devices=[
+         "Android://127.0.0.1:5037/127.0.0.1:7555",
+ ])
+#auto_setup(__file__)
 
 
-def main_ui():
-    wait(Template(r"tpl1614235268446.png", record_pos=(0.264, 0.14), resolution=(1280, 720)))
-    touch(Template(r"tpl1614235268446.png", record_pos=(0.264, 0.14), resolution=(1280, 720)))
-    sleep(1)
-    wait(Template(r"tpl1614235318747.png", record_pos=(-0.435, -0.107), resolution=(1280, 720)))
-    touch(Template(r"tpl1614235318747.png", record_pos=(-0.435, -0.107), resolution=(1280, 720)))
-    sleep(1)
-    wait(Template(r"tpl1614235361741.png", record_pos=(0.002, 0.048), resolution=(1280, 720)))
-    touch(Template(r"tpl1614235361741.png", record_pos=(0.002, 0.048), resolution=(1280, 720)))
-    sleep(1)
-    wait(Template(r"tpl1614235505779.png", record_pos=(-0.235, -0.125), resolution=(1280, 720)))
-    touch(Template(r"tpl1614235505779.png", record_pos=(-0.235, -0.125), resolution=(1280, 720)))
-    wait(Template(r"tpl1614235540135.png", record_pos=(-0.025, -0.055), resolution=(1280, 720)))
-    touch(Template(r"tpl1614235540135.png", record_pos=(-0.025, -0.055), resolution=(1280, 720)))
-    wait(Template(r"tpl1614235451025.png", record_pos=(0.441, 0.102), resolution=(1280, 720)))
-    touch(Template(r"tpl1614235451025.png", record_pos=(0.441, 0.102), resolution=(1280, 720)))
-    wait(Template(r"tpl1614235573297.png", record_pos=(0.294, 0.22), resolution=(1280, 720)))
-    touch(Template(r"tpl1614235573297.png", record_pos=(0.294, 0.22), resolution=(1280, 720)))
-    sleep(1)
+def run_again(func):
+    def wappper(*args, **keyargs):
+        try:
+            func(*args, **keyargs)
+        except:
+            start()
+    return wappper
 
 
 # 跳过
@@ -38,24 +31,30 @@ def pass_this():
         pass_this()
 
 
+def click_this():
+    if exists(Template(r"tpl1615034602129.png", record_pos=(0.0, 0.222), resolution=(1440, 810))):
+        touch(Template(r"tpl1615034602129.png", record_pos=(0.0, 0.222), resolution=(1440, 810)))
+        sleep(4)
+        click_this()
+
+
 # 开始闯关
+# @run_again
 def start():
-    wait(Template(r"tpl1614235609211.png", record_pos=(0.317, 0.182), resolution=(1280, 720)))
-    if exists(Template(r"tpl1614235609211.png", record_pos=(0.317, 0.182), resolution=(1280, 720))) and exists(Template(r"tpl1614236097958.png", record_pos=(0.098, 0.184), resolution=(1280, 720))):
-        touch(Template(r"tpl1614235609211.png", record_pos=(0.317, 0.182), resolution=(1280, 720)))
+    if exists(Template(r"tpl1615034509758.png", record_pos=(0.319, 0.183), resolution=(1440, 810))) and exists(Template(r"tpl1615034526826.png", record_pos=(0.097, 0.182), resolution=(1440, 810))):
+        touch(Template(r"tpl1615034509758.png", record_pos=(0.319, 0.183), resolution=(1440, 810)))
 
     sleep(30)
     wait(Template(r"tpl1614235660364.png", record_pos=(0.461, -0.258), resolution=(1280, 720)))
     pass_this()
-    
     sleep(4)
-    wait(Template(r"tpl1614235756012.png", record_pos=(0.001, 0.223), resolution=(1280, 720)))
-    if exists(Template(r"tpl1614235756012.png", record_pos=(0.001, 0.223), resolution=(1280, 720))):
-        touch(Template(r"tpl1614235756012.png", record_pos=(0.001, 0.223), resolution=(1280, 720)))
+    wait(Template(r"tpl1615034602129.png", record_pos=(0.0, 0.222), resolution=(1440, 810)))
+    if exists(Template(r"tpl1615034602129.png", record_pos=(0.0, 0.222), resolution=(1440, 810))):
+        touch(Template(r"tpl1615034602129.png", record_pos=(0.0, 0.222), resolution=(1440, 810)))
     sleep(3)
-    if exists(Template(r"tpl1614235788745.png", record_pos=(0.361, 0.233), resolution=(1280, 720))):
-        touch(Template(r"tpl1614235788745.png", record_pos=(0.361, 0.233), resolution=(1280, 720)))
+    click_this()
     sleep(4)
+
 
 for i in range(1, 141):
     start()

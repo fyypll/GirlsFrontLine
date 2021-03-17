@@ -3,12 +3,16 @@ __author__ = "maple"
 
 import datetime
 from airtest.core.api import *
+from airtest.cli.parser import cli_setup
 import logging
 logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
-
-auto_setup(__file__)
+if not cli_setup():
+    auto_setup(__file__, logdir=None, devices=[
+            "Android://127.0.0.1:5037/127.0.0.1:7555",
+    ])
+# auto_setup(__file__)
 
 count = 0
 
@@ -36,5 +40,5 @@ def again_find():
 		print("没有找到,当前时间>>"+times)
 
 while True:
-	sleep(60)
 	again_find()
+	sleep(300)
