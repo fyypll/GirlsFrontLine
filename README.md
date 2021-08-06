@@ -8,6 +8,13 @@
 
 使用的MuMu模拟器，分辨率1440*810
 
+系统需要安装有 `python` ，我的版本 `Python 3.8.5`
+
+在项目目录使用如下命令安装需要的依赖库
+`pip install -r requirements.txt`
+
+启动脚本命令： `python 81n炸狗v4.0.air/81n炸狗v4.0.py`
+
 ##### 1.1 队伍配置
 
 第一队放老板和zas
