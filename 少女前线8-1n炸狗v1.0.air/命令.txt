@@ -1,1 +1,0 @@
-"D:\AirtestIDE\AirtestIDE" runner "F:\AirTest\少女前线8-1n炸狗v1.0.air"  --device android://127.0.0.1:5037/127.0.0.1:7555?cap_method=MINICAP_STREAM&&ori_method=MINICAPORI&&touch_method=MINITOUCH --log "C:\Users\maple\AppData\Local\Temp\AirtestIDE\scripts\507ffd9ed0a203b08a2752a49d518c98"

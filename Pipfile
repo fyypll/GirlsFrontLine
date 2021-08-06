@@ -1,13 +1,13 @@
 [[source]]
-name = "tsinghua"
 url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 verify_ssl = true
-
-[dev-packages]
+name = "tsinghua"
 
 [packages]
 airtest = "*"
-opencv-contrib-python = "==3.4.2.16"
+numpy = "*"
+
+[dev-packages]
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
