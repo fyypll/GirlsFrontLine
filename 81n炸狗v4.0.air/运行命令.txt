@@ -9,3 +9,6 @@ airtest run "F:\\AirTest\\81n炸狗v4.0.air" --device Android://127.0.0.1:5037/1
 方式三
 直接使用 python+文件名的方式运行
 python xxx.py
+
+报告生成命令
+airtest report F:/项目相关/AirTest/81n炸狗v4.0.air --log_root F:/项目相关/AirTest/81n炸狗v4.0.air/log --outfile F:/项目相关/AirTest/81n炸狗v4.0.air/log/log.html --lang zh

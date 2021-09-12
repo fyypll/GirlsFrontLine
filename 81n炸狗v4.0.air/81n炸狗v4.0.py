@@ -11,7 +11,7 @@ logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
 if not cli_setup():
-    auto_setup(__file__, logdir=True, devices=[
+    auto_setup(__file__, logdir=False, devices=[
             "Android://127.0.0.1:5037/127.0.0.1:7555",
     ])
 # auto_setup(__file__)
@@ -376,15 +376,15 @@ def chose_81n_map():
     if exists(Template(r"tpl1613454816198.png", record_pos=(-0.409, -0.092), resolution=(1440, 810))):
         touch(Template(r"tpl1613454816198.png", record_pos=(-0.409, -0.092), resolution=(1440, 810)))
         sleep(1)
-    if exists(Template(r"tpl1613054490281.png", record_pos=(-0.294, 0.024), resolution=(1440, 810))):
+    if exists(Template(r"tpl1631445475397.png", record_pos=(0.428, -0.185), resolution=(1440, 810))):
         # 获取当前手机设备
         dev = device()
         # 手指按照顺序依次滑过多个坐标,滑三次以保证滑到底
         for i in range(3):
             dev.swipe_along([[260, 644],[283, 286]])
         sleep(1)
-        wait(Template(r"tpl1613055791912.png", record_pos=(-0.317, -0.199), resolution=(1440, 810)))
-        touch(Template(r"tpl1613055791912.png", target_pos=8, record_pos=(-0.317, -0.199), resolution=(1440, 810)))
+        wait(Template(r"tpl1631443182161.png", record_pos=(-0.311, -0.21), resolution=(1440, 810)))
+        touch(Template(r"tpl1631443182161.png", target_pos=8, record_pos=(-0.311, -0.21), resolution=(1440, 810)))
         sleep(1)
         touch([1363, 207])
         sleep(1)
