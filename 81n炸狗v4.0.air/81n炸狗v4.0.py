@@ -225,7 +225,7 @@ def chai_zhuang_bei():
     # 如果是在主页
     wait(Template(r"tpl1613995441235.png", record_pos=(0.403, -0.052), resolution=(1440, 810)))
     touch(Template(r"tpl1613995441235.png", record_pos=(0.403, -0.052), resolution=(1440, 810)))
-    sleep(2)
+    sleep(1)
     wait(Template(r"tpl1631515808665.png", record_pos=(-0.409, 0.047), resolution=(1440, 810)))
     touch(Template(r"tpl1631515808665.png", record_pos=(-0.409, 0.047), resolution=(1440, 810)))
     sleep(1)
@@ -234,15 +234,15 @@ def chai_zhuang_bei():
     sleep(1)
     wait(Template(r"tpl1613037856497.png", record_pos=(0.426, 0.109), resolution=(1440, 810)))
     touch(Template(r"tpl1613037856497.png", record_pos=(0.426, 0.109), resolution=(1440, 810)))
-    sleep(0.1)
+    sleep(1)
 
     wait(Template(r"tpl1613037838594.png", record_pos=(0.425, 0.108), resolution=(1440, 810)))
     wait(Template(r"tpl1613037917903.png", record_pos=(0.422, 0.214), resolution=(1440, 810)))
     touch(Template(r"tpl1613037917903.png", record_pos=(0.422, 0.214), resolution=(1440, 810)))
-    sleep(0.1)
+    sleep(1)
     # 点击确认按钮
     comfirm_button()
-    sleep(0.1)
+    sleep(1)
     wait(Template(r"tpl1631515898615.png", record_pos=(0.338, -0.151), resolution=(1440, 810)))
     wait(Template(r"tpl1631515911098.png", record_pos=(0.386, 0.19), resolution=(1440, 810)))
     touch(Template(r"tpl1631515911098.png", record_pos=(0.386, 0.19), resolution=(1440, 810)))
@@ -259,7 +259,7 @@ def chai_zhuang_bei():
             sleep(0.1)
     # 点击确认按钮
     comfirm_button()
-    sleep(0.1)
+    sleep(1)
     wait(Template(r"tpl1631515898615.png", record_pos=(0.338, -0.151), resolution=(1440, 810)))
     wait(Template(r"tpl1631515911098.png", record_pos=(0.386, 0.19), resolution=(1440, 810)))
     touch(Template(r"tpl1631515911098.png", record_pos=(0.386, 0.19), resolution=(1440, 810)))
@@ -515,7 +515,7 @@ def bomb_dog():
         
         # 如果显示弹药耗尽那么就是打完了
         if exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
-            # 每15回合，拆一次装备
+            # 每15回合(其实是16，因为是0开始计数)，拆一次装备
             if (count) % 15 == 0:
                 # 此时还在地图上，先终止作战回到选图页面
                 end_fight()
