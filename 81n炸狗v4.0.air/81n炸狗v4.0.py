@@ -11,7 +11,7 @@ logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
 if not cli_setup():
-    auto_setup(__file__, logdir=False, devices=[
+    auto_setup(__file__, logdir=True, devices=[
             "Android://127.0.0.1:5037/127.0.0.1:7555",
     ])
 # auto_setup(__file__)
@@ -120,11 +120,11 @@ def click_zas():
     if exists(Template(r"tpl1612973262610.png", record_pos=(-0.188, -0.237), resolution=(1440, 810))):
         wait(Template(r"tpl1614181809151.png", record_pos=(-0.172, 0.133), resolution=(1440, 810)))
         touch(Template(r"tpl1614181809151.png", record_pos=(-0.172, 0.133), resolution=(1440, 810)))
-        sleep(3)
+        sleep(2)
         click_zas()
 
 
-# 点击军营中的zas
+# 点击仓库中的zas
 def click_barracks_zas():
     if exists(Template(r"tpl1614181750397.png", record_pos=(-0.324, 0.001), resolution=(1440, 810))):
         touch(Template(r"tpl1614181750397.png", record_pos=(-0.324, 0.001), resolution=(1440, 810)))
@@ -149,7 +149,7 @@ def replace_zas():
     wait(Template(r"tpl1612973435192.png", record_pos=(0.253, 0.174), resolution=(1440, 810)))
     touch(Template(r"tpl1612973435192.png", record_pos=(0.253, 0.174), resolution=(1440, 810)))
     sleep(1)
-    # 点击军营中的zas
+    # 点击仓库中的zas
     click_barracks_zas()
 
 
@@ -157,7 +157,7 @@ def replace_zas():
 def supply():
     if exists(Template(r"tpl1614396241356.png", target_pos=2, record_pos=(-0.258, -0.009), resolution=(1440, 810))):
         touch(Template(r"tpl1614396241356.png", target_pos=2, record_pos=(-0.258, -0.009), resolution=(1440, 810)))
-        sleep(2)
+        sleep(1)
         touch(Template(r"tpl1614396241356.png", target_pos=2, record_pos=(-0.258, -0.009), resolution=(1440, 810)))
         sleep(1)
     if exists(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810))):
@@ -192,12 +192,12 @@ def deploy_two_team():
 def plan_route():
     wait(Template(r"tpl1614396000854.png", target_pos=7, record_pos=(-0.171, 0.059), resolution=(1440, 810)))
     touch(Template(r"tpl1614396000854.png", target_pos=7, record_pos=(-0.171, 0.059), resolution=(1440, 810)))
-    sleep(1)
+    sleep(0.1)
     touch(Template(r"tpl1612981328795.png", record_pos=(-0.44, 0.181), resolution=(1440, 810)))
-    sleep(1)
+    sleep(0.1)
     wait(Template(r"tpl1612981435916.png", target_pos=1, record_pos=(-0.215, 0.031), resolution=(1440, 810)))
     touch(Template(r"tpl1612981435916.png", target_pos=1, record_pos=(-0.215, 0.031), resolution=(1440, 810)))
-    sleep(1)
+    sleep(0.1)
     wait(Template(r"tpl1612984857140.png", target_pos=3, record_pos=(-0.288, 0.033), resolution=(1440, 810)))
     touch(Template(r"tpl1612984857140.png", target_pos=3, record_pos=(-0.288, 0.033), resolution=(1440, 810)))
     sleep(1)
@@ -226,26 +226,26 @@ def chai_zhuang_bei():
     wait(Template(r"tpl1613995441235.png", record_pos=(0.403, -0.052), resolution=(1440, 810)))
     touch(Template(r"tpl1613995441235.png", record_pos=(0.403, -0.052), resolution=(1440, 810)))
     sleep(2)
-    wait(Template(r"tpl1613035315767.png", record_pos=(-0.41, 0.048), resolution=(1440, 810)))
-    touch(Template(r"tpl1613035315767.png", record_pos=(-0.41, 0.048), resolution=(1440, 810)))
+    wait(Template(r"tpl1631515808665.png", record_pos=(-0.409, 0.047), resolution=(1440, 810)))
+    touch(Template(r"tpl1631515808665.png", record_pos=(-0.409, 0.047), resolution=(1440, 810)))
     sleep(1)
     wait(Template(r"tpl1613995510960.png", record_pos=(-0.065, -0.126), resolution=(1440, 810)))
     touch(Template(r"tpl1613995510960.png", record_pos=(-0.065, -0.126), resolution=(1440, 810)))
     sleep(1)
     wait(Template(r"tpl1613037856497.png", record_pos=(0.426, 0.109), resolution=(1440, 810)))
     touch(Template(r"tpl1613037856497.png", record_pos=(0.426, 0.109), resolution=(1440, 810)))
-    sleep(2)
+    sleep(0.1)
 
     wait(Template(r"tpl1613037838594.png", record_pos=(0.425, 0.108), resolution=(1440, 810)))
     wait(Template(r"tpl1613037917903.png", record_pos=(0.422, 0.214), resolution=(1440, 810)))
     touch(Template(r"tpl1613037917903.png", record_pos=(0.422, 0.214), resolution=(1440, 810)))
-    sleep(2)
+    sleep(0.1)
     # 点击确认按钮
     comfirm_button()
-    sleep(2)
-    wait(Template(r"tpl1613037981165.png", record_pos=(0.334, -0.15), resolution=(1440, 810)))
-    wait(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
-    touch(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
+    sleep(0.1)
+    wait(Template(r"tpl1631515898615.png", record_pos=(0.338, -0.151), resolution=(1440, 810)))
+    wait(Template(r"tpl1631515911098.png", record_pos=(0.386, 0.19), resolution=(1440, 810)))
+    touch(Template(r"tpl1631515911098.png", record_pos=(0.386, 0.19), resolution=(1440, 810)))
     sleep(1)
     
     # 准备拆解蓝色装备
@@ -256,13 +256,13 @@ def chai_zhuang_bei():
     if exists(Template(r"tpl1613037838594.png", record_pos=(0.425, 0.108), resolution=(1440, 810))):
         for i in range(12):
             touch(Template(r"tpl1613052692777.png", record_pos=(-0.409, -0.186), resolution=(1440, 810)))
-            sleep(0.2)
+            sleep(0.1)
     # 点击确认按钮
     comfirm_button()
-    sleep(1)
-    wait(Template(r"tpl1613037981165.png", record_pos=(0.334, -0.15), resolution=(1440, 810)))
-    wait(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
-    touch(Template(r"tpl1613037987997.png", record_pos=(0.386, 0.192), resolution=(1440, 810)))
+    sleep(0.1)
+    wait(Template(r"tpl1631515898615.png", record_pos=(0.338, -0.151), resolution=(1440, 810)))
+    wait(Template(r"tpl1631515911098.png", record_pos=(0.386, 0.19), resolution=(1440, 810)))
+    touch(Template(r"tpl1631515911098.png", record_pos=(0.386, 0.19), resolution=(1440, 810)))
     sleep(1)
     if exists(Template(r"tpl1613104619512.png", record_pos=(0.031, -0.183), resolution=(1440, 810))):
         # 点击确认按钮
@@ -314,7 +314,7 @@ def close_and_start():
     dev = device()
     # 关闭少女前线
     stop_app('com.sunborn.girlsfrontline.cn')
-    sleep(5)
+    sleep(2)
     # 打开少女前线
     start_app('com.sunborn.girlsfrontline.cn')
     wait(Template(r"tpl1613108555413.png", record_pos=(0.001, 0.186), resolution=(1440, 810)))
@@ -349,7 +349,7 @@ def close_and_start():
 def click_back_activity():
     if exists(Template(r"tpl1613318935294.png", record_pos=(-0.369, -0.25), resolution=(1440, 810))):
         touch(Template(r"tpl1613318935294.png", target_pos=4, record_pos=(-0.369, -0.25), resolution=(1440, 810)))
-        sleep(10)
+        sleep(2)
         click_back_activity()
 
 
@@ -453,7 +453,7 @@ def bomb_dog_retry(func):
 
 
 # 这里开始炸狗了，加上装饰器，失败重跑
-@bomb_dog_retry
+# @bomb_dog_retry
 def bomb_dog():
     global count
     # 如果遇到后勤队伍归来
@@ -509,10 +509,8 @@ def bomb_dog():
             # bomb_dog()
             return 0
 
-        # 等待110s左右
         sleep(110)
         # 使用wait进行等待兼容，等到了就立马执行下一句
-        # 因为100s明显是不够的，150s是最高，而时间是在两者间浮动的，也没法写死
         wait(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810)), timeout=50)
         
         # 如果显示弹药耗尽那么就是打完了
