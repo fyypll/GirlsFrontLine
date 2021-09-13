@@ -11,7 +11,7 @@ logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
 if not cli_setup():
-    auto_setup(__file__, logdir=True, devices=[
+    auto_setup(__file__, logdir=False, devices=[
             "Android://127.0.0.1:5037/127.0.0.1:7555",
     ])
 # auto_setup(__file__)
@@ -453,7 +453,7 @@ def bomb_dog_retry(func):
 
 
 # 这里开始炸狗了，加上装饰器，失败重跑
-# @bomb_dog_retry
+@bomb_dog_retry
 def bomb_dog():
     global count
     # 如果遇到后勤队伍归来
