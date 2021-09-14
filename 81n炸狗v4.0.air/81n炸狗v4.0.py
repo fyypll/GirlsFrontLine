@@ -511,10 +511,10 @@ def bomb_dog():
 
         sleep(110)
         # 使用wait进行等待兼容，等到了就立马执行下一句
-        wait(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810)), timeout=50)
+        wait(Template(r"tpl1631578586262.png", record_pos=(0.312, 0.236), resolution=(1440, 810)), timeout=50)
         
-        # 如果显示弹药耗尽那么就是打完了
-        if exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
+        # 如果行动点数为1那么就是打完了
+        if exists(Template(r"tpl1631578586262.png", record_pos=(0.312, 0.236), resolution=(1440, 810))):
             # 每15回合(其实是16，因为是0开始计数)，拆一次装备
             if (count) % 15 == 0:
                 # 此时还在地图上，先终止作战回到选图页面
@@ -539,12 +539,12 @@ def bomb_dog():
                 sleep(5)
                 return 0
     
-    if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))) and exists(Template(r"tpl1613989550759.png", record_pos=(0.046, 0.016), resolution=(1440, 810))):
+    if exists(Template(r"tpl1612983057440.png", record_pos=(-0.255, -0.242), resolution=(1440, 810))) and exists(Template(r"tpl1631578586262.png", record_pos=(0.312, 0.236), resolution=(1440, 810))):
         sleep(1)
         restart()
         return 0
     
-    # 若既不在主页，也不在地图尚未开始的页面，那就重启
+    # 若既不在主页，也不在地图页面，那就重启
     close_and_start()
     # 打印任务时间信息
 
