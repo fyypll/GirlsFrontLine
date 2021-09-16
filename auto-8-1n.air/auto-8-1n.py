@@ -11,7 +11,7 @@ logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
 if not cli_setup():
-    auto_setup(__file__, logdir=True, devices=[
+    auto_setup(__file__, logdir=False, devices=[
         "Android://127.0.0.1:5037/127.0.0.1:7555",
     ])
 # auto_setup(__file__)
