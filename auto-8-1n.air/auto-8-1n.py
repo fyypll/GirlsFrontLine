@@ -11,7 +11,7 @@ logger = logging.getLogger("airtest")
 logger.setLevel(logging.ERROR)
 
 if not cli_setup():
-    auto_setup(__file__, logdir=False, devices=[
+    auto_setup(__file__, logdir=True, devices=[
         "Android://127.0.0.1:5037/127.0.0.1:7555",
     ])
 # auto_setup(__file__)
@@ -43,8 +43,8 @@ def scaling():
         dev.pinch(in_or_out='in', center=None, percent=0.5)
         sleep(2)
     # 向外捏合
-    # dev.pinch(in_or_out='out', center=None, percent=0.1)
-    # sleep(1)
+    dev.pinch(in_or_out='out', center=None, percent=0.1)
+    sleep(1)
     # 如果捏合的时候点出了重装页面，那么关闭并重新缩放地图
     if exists(Template(r"tpl1613063270994.png", record_pos=(-0.297, -0.212), resolution=(1440, 810))):
         touch(Template(r"tpl1613063307567.png", record_pos=(
@@ -86,12 +86,13 @@ def start_fight():
 
 # 点击左下角的机场
 def click_airport_bottom_left():
-    touch([466, 583])
+    touch(Template(r"tpl1631786895621.png", target_pos=9, record_pos=(-0.383, 0.177), resolution=(1440, 810)))
 
 
 # 点击左上角的机场
 def click_airport_top_left():
-    touch([500, 294])
+    touch(Template(r"tpl1631786952292.png", target_pos=9, record_pos=(-0.306, -0.203), resolution=(1440, 810)))
+
 
 
 # 确定部署梯队
@@ -153,9 +154,9 @@ def replace_zas():
 
 # 补给梯队
 def supply():
-    touch([499, 296])
+    touch(Template(r"tpl1631786952292.png", target_pos=9, record_pos=(-0.306, -0.203), resolution=(1440, 810)))
     sleep(1)
-    touch([499, 296])
+    touch(Template(r"tpl1631786952292.png", target_pos=9, record_pos=(-0.306, -0.203), resolution=(1440, 810)))
 
     if exists(Template(r"tpl1612980772706.png", record_pos=(0.438, 0.157), resolution=(1440, 810))):
         touch(Template(r"tpl1612980772706.png", record_pos=(
@@ -164,7 +165,7 @@ def supply():
 
 # 撤退梯队
 def retreat():
-    touch([499, 296])
+    touch(Template(r"tpl1631786952292.png", target_pos=9, record_pos=(-0.306, -0.203), resolution=(1440, 810)))
     sleep(1)
     if exists(Template(r"tpl1612980931491.png", record_pos=(0.263, 0.214), resolution=(1440, 810))):
         touch(Template(r"tpl1612980931491.png", record_pos=(
@@ -188,15 +189,15 @@ def deploy_two_team():
 
 # 给左下角梯队规划炸狗路线
 def plan_route():
-    touch([465, 579])
+    touch(Template(r"tpl1631786895621.png", target_pos=9, record_pos=(-0.383, 0.177), resolution=(1440, 810)))
+    sleep(1)
     touch(Template(r"tpl1612981328795.png",
                    record_pos=(-0.44, 0.181), resolution=(1440, 810)))
-    touch([540, 432])
-    sleep(0.2)
-    touch([454, 495])
-    sleep(0.2)
-    touch([545, 371])
-    sleep(0.2)
+    sleep(1)
+    touch(Template(r"tpl1631787632598.png", target_pos=7, record_pos=(-0.267, -0.037), resolution=(1440, 810)))
+    sleep(1)
+    touch(Template(r"tpl1631787712078.png", target_pos=3, record_pos=(-0.272, 0.056), resolution=(1440, 810)))
+    sleep(1)
     touch(Template(r"tpl1612981707528.png", record_pos=(
         0.426, 0.231), resolution=(1440, 810)))
 
@@ -512,19 +513,12 @@ def bomb_dog():
         # 补给完了就撤退
         retreat()
         sleep(1)
+        # 如果炸狗队没有弹药则重开
+        if exists(Template(r"tpl1631785478927.png", threshold=0.5, record_pos=(-0.131, 0.123), resolution=(1440, 810))):
+            restart()
+            return 0
         # 点击计划模式，给左下角梯队规划路线并执行计划
         plan_route()
-        sleep(2)
-        # 如果遇到没有口粮弹药进击必败
-        if exists(Template(r"tpl1614003508989.png", record_pos=(-0.048, -0.058), resolution=(1440, 810))):
-            touch(Template(r"tpl1614003553801.png",
-                           record_pos=(-0.092, 0.106), resolution=(1440, 810)))
-            sleep(1)
-            restart()
-            # continue
-            # bomb_dog()
-            return 0
-
         sleep(110)
         # 使用wait进行等待兼容，等到了就立马执行下一句
         wait(Template(r"tpl1631578586262.png", record_pos=(
@@ -532,7 +526,7 @@ def bomb_dog():
 
         # 如果行动点数为1那么就是打完了
         if exists(Template(r"tpl1631578586262.png", record_pos=(0.312, 0.236), resolution=(1440, 810))):
-            # 每15回合拆一次装备
+            # 每15回合拆一次装备(具体看你的装备仓库够几回合)
             if (count) % 15 == 0:
                 # 此时还在地图上，先终止作战回到选图页面
                 end_fight()

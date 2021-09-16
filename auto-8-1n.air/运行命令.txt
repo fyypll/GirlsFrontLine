@@ -11,4 +11,4 @@ airtest run "F:\\AirTest\\81n炸狗v4.0.air" --device Android://127.0.0.1:5037/1
 python xxx.py
 
 报告生成命令
-airtest report F:/项目相关/AirTest/81n炸狗v4.0.air --log_root F:/项目相关/AirTest/81n炸狗v4.0.air/log --outfile F:/项目相关/AirTest/81n炸狗v4.0.air/log/log.html --lang zh
+airtest report F:/项目相关/AirTest/auto-8-1n.air --log_root F:/项目相关/AirTest/auto-8-1n.air/log --outfile F:/项目相关/AirTest/log.html --lang zh
